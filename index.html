@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كنز المعلومات</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', 'Amiri', sans-serif;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 25%, #1565c0 50%, #1976d2 75%, #42a5f5 100%);
+    min-height: 100vh;
+    text-align: center;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="islamic" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><path d="M10 2 L12 8 L18 10 L12 12 L10 18 L8 12 L2 10 L8 8 Z" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23islamic)"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+}
+
+h1 {
+    background: linear-gradient(135deg, #0d1421 0%, #1a237e 30%, #0d47a1 60%, #1565c0 100%);
+    color: #fff;
+    padding: 35px 25px;
+    margin: 0;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'Cairo', 'Amiri', sans-serif;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.4);
+    box-shadow: 0 10px 40px rgba(26, 35, 126, 0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    letter-spacing: 0;
+    border-bottom: 3px solid #d4af37;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="islamic-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.1)"/><path d="M15 5 L18 12 L25 15 L18 18 L15 25 L12 18 L5 15 L12 12 Z" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="60" height="60" fill="url(%23islamic-pattern)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+    animation: patternFloat 15s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes patternFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(0.5deg); }
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+h1:hover::after {
+    left: 100%;
+}
+
+h1:hover {
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 30%, #1976d2 60%, #42a5f5 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 50px rgba(26, 35, 126, 0.6), inset 0 1px 0 rgba(255,255,255,0.15);
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.6), 0 0 40px rgba(255,215,0,0.5);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container i {
+    font-size: 28px;
+    color: #ffd700;
+    transition: all 0.4s ease;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+.logo-container i:first-child {
+    animation-delay: 0s;
+}
+
+.logo-container i:last-child {
+    animation-delay: 1s;
+}
+
+.title-text {
+    font-size: 46px;
+    font-weight: 700;
+    font-family: 'Cairo', 'Amiri', sans-serif;
+    background: linear-gradient(135deg, #ffd700 0%, #fff 50%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.4);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0;
+    transition: all 0.4s ease;
+}
+
+@keyframes logoPulse {
+    0%, 100% { 
+        color: #ffd700; 
+        transform: scale(1);
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)) drop-shadow(0 0 8px rgba(255,215,0,0.3));
+    }
+    50% { 
+        color: #fff; 
+        transform: scale(1.1);
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)) drop-shadow(0 0 15px rgba(255,215,0,0.6));
+    }
+}
+
+h1:hover .logo-container i {
+    color: #fff;
+    transform: scale(1.2);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(255,215,0,0.7));
+    animation: logoSpin 0.6s ease-out;
+}
+
+h1:hover .title-text {
+    background: linear-gradient(135deg, #fff 0%, #ffd700 50%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.02);
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.6), 0 0 40px rgba(255,215,0,0.6);
+}
+
+@keyframes logoSpin {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(180deg); }
+    100% { transform: scale(1.2) rotate(0deg); }
+}
+
+#start-screen {
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.9) 0%, rgba(13, 71, 161, 0.9) 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin: 50px auto;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 2px solid #d4af37;
+    position: relative;
+    overflow: hidden;
+}
+
+#start-screen::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+#start-screen h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.start-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+    color: #1a237e;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn i {
+    margin-left: 8px;
+}
+
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
+}
+
+.start-btn:active {
+    transform: translateY(0);
+}
+
+#quiz-container {
+    display: none;
+    margin: 30px auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,248,255,0.95) 100%);
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: slideIn 0.8s ease-out;
+    border: 3px solid #d4af37;
+    position: relative;
+    color: #1a237e;
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.9);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+.timer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #d4af37;
+    line-height: 84px;
+    font-size: 28px;
+    color: #1a237e;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite alternate;
+    background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    font-weight: 700;
+    position: relative;
+}
+
+.timer::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #d4af37, #ffd700, #d4af37);
+    z-index: -1;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
+    to { transform: scale(1.1); box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5); }
+}
+
+.question {
+    font-size: 24px;
+    margin: 30px 0;
+    font-weight: 600;
+    color: #1a237e;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.answer-btn {
+    padding: 18px 20px;
+    font-size: 18px;
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+    color: #1a237e;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: slideInUp 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.answer-btn:disabled {
+    opacity: 1 !important;
+    color: inherit !important;
+    background: inherit !important;
+}
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.answer-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.answer-btn:hover::before {
+    left: 100%;
+}
+
+.answer-btn:hover {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #1a237e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.correct {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%) !important;
+    color: white !important;
+    animation: correctFlash 0.6s;
+    border-color: #2e7d32 !important;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4) !important;
+    opacity: 1 !important;
+}
+
+.correct:disabled {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%) !important;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+@keyframes correctFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1.02); }
+}
+
+.wrong {
+    background: linear-gradient(135deg, #f44336 0%, #ef5350 100%) !important;
+    color: white !important;
+    animation: wrongFlash 0.6s;
+    border-color: #c62828 !important;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4) !important;
+    opacity: 1 !important;
+}
+
+.wrong:disabled {
+    background: linear-gradient(135deg, #f44336 0%, #ef5350 100%) !important;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+@keyframes wrongFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1.02); }
+}
+
+#score {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a237e;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 215, 0, 0.2) 100%);
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #1a237e;
+    padding: 20px 30px;
+    border-radius: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    animation: popupAnim 0.6s ease-out;
+    z-index: 1000;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 3px solid #1a237e;
+}
+
+@keyframes popupAnim {
+    from { 
+        opacity: 0; 
+        transform: scale(0.5) translate(-50%, -50%);
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+#end-screen {
+    display: none;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.9) 0%, rgba(102, 187, 106, 0.9) 100%);
+    padding: 40px;
+    border-radius: 25px;
+    animation: fadeIn 1s ease-out;
+    margin: 50px auto;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 3px solid #d4af37;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#end-screen h2 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(26, 35, 126, 0.4);
+    transition: all 0.3s ease;
+}
+
+#restart-btn i {
+    margin-left: 8px;
+}
+
+#restart-btn:hover {
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(26, 35, 126, 0.6);
+}
+
+@media (max-width: 768px) {
+    h1 { 
+        font-size: 28px; 
+        padding: 20px 15px; 
+        gap: 15px;
+        flex-direction: row;
+    }
+    
+    .title-text {
+        font-size: 28px;
+        letter-spacing: 0;
+    }
+    
+    .logo-container {
+        gap: 4px;
+    }
+    
+    .logo-container i {
+        font-size: 20px;
+    }
+    
+    #start-screen { padding: 40px 20px; margin: 30px 20px; }
+    #quiz-container { padding: 20px; margin: 20px; }
+    .question { font-size: 20px; }
+    .answers-grid { grid-template-columns: 1fr; }
+    .timer { width: 80px; height: 80px; line-height: 64px; font-size: 24px; }
+}
+</style>
+</style>
+</head>
+<body>
+<h1 onclick="goToHomepage()">
+    <div class="logo-container">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-star"></i>
+    </div>
+    <span class="title-text">كنز المعلومات</span>
+    <div class="logo-container">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+</h1>
+
+<!-- شاشة البداية -->
+<div id="start-screen">
+  <h2><i class="fas fa-bullseye"></i> مرحبًا بك في كنز المعلومات</h2>
+  <p style="margin-bottom: 30px; font-size: 18px; opacity: 0.9;">اختبر معلوماتك الإسلامية واربح الكنز! <i class="fas fa-trophy"></i></p>
+  <button onclick="startGame()" class="start-btn"><i class="fas fa-rocket"></i> ابدأ اللعب</button>
+</div>
+
+<!-- محتوى اللعبة -->
+<div id="quiz-container">
+    <div class="timer" id="timer">15</div>
+    <div id="question" class="question">جارٍ التحميل...</div>
+    <div id="answers" class="answers-grid"></div>
+    <div id="score">النقاط: 0 | الأخطاء: 0</div>
+</div>
+<div id="popup"></div>
+<div id="end-screen">
+    <h2>🎉 لقد ربحت!</h2>
+    <button id="restart-btn" onclick="restartGame()">🔄 إعادة اللعب</button>
+</div>
+
+<script>
+// ✅ نظام الأصوات المحسن باستخدام Web Audio API
+let audioContext;
+let masterGain;
+let audioInitialized = false;
+
+function initAudio() {
+    if (audioInitialized) return;
+    try {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        masterGain = audioContext.createGain();
+        masterGain.gain.value = 0.3;
+        masterGain.connect(audioContext.destination);
+        audioInitialized = true;
+    } catch (e) {
+        console.log('Audio context not supported');
+    }
+}
+
+function createCorrectSound() {
+    if (!audioContext) return;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain); gain.connect(masterGain);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(700, audioContext.currentTime);
+    osc.frequency.linearRampToValueAtTime(1100, audioContext.currentTime + 0.18);
+    gain.gain.setValueAtTime(0.18, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.32);
+    osc.start(); osc.stop(audioContext.currentTime + 0.32);
+}
+
+function createWrongSound() {
+    if (!audioContext) return;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain); gain.connect(masterGain);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(320, audioContext.currentTime);
+    osc.frequency.linearRampToValueAtTime(180, audioContext.currentTime + 0.22);
+    gain.gain.setValueAtTime(0.16, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.28);
+    osc.start(); osc.stop(audioContext.currentTime + 0.28);
+}
+
+function createWarningSound() {
+    if (!audioContext) return;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain); gain.connect(masterGain);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(900, audioContext.currentTime);
+    osc.frequency.setValueAtTime(1200, audioContext.currentTime + 0.08);
+    osc.frequency.setValueAtTime(900, audioContext.currentTime + 0.16);
+    gain.gain.setValueAtTime(0.13, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.22);
+    osc.start(); osc.stop(audioContext.currentTime + 0.22);
+}
+
+function createLoseSound() {
+    if (!audioContext) return;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain); gain.connect(masterGain);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(180, audioContext.currentTime);
+    osc.frequency.linearRampToValueAtTime(60, audioContext.currentTime + 0.5);
+    gain.gain.setValueAtTime(0.18, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.6);
+    osc.start(); osc.stop(audioContext.currentTime + 0.6);
+}
+
+function createClickSound() {
+    if (!audioContext) return;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain); gain.connect(masterGain);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(950, audioContext.currentTime);
+    osc.frequency.linearRampToValueAtTime(700, audioContext.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.11, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.07);
+    osc.start(); osc.stop(audioContext.currentTime + 0.07);
+}
+
+function createClapSound() {
+    if (!audioContext) return;
+    for (let i = 0; i < 5; i++) {
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        osc.connect(gain); gain.connect(masterGain);
+        osc.type = 'sine';
+        const t = audioContext.currentTime + i * 0.06;
+        osc.frequency.setValueAtTime(1200 + i * 80, t);
+        osc.frequency.linearRampToValueAtTime(800 + i * 80, t + 0.08);
+        gain.gain.setValueAtTime(0.09, t);
+        gain.gain.linearRampToValueAtTime(0.01, t + 0.13);
+        osc.start(t); osc.stop(t + 0.13);
+    }
+}
+
+// ✅ مكان إضافة الأسئلة
+const questions = [
+{q:"ما هي أول سورة في القرآن الكريم؟",answers:["البقرة","الفاتحة","الإخلاص","الكوثر"],correct:1},
+{q:"كم عدد أركان الإسلام؟",answers:["3","4","5","6"],correct:2},
+{q:"من هو خاتم الأنبياء؟",answers:["موسى","عيسى","محمد","نوح"],correct:2},
+{q:"في أي عام هجري وقعت غزوة بدر؟",answers:["1 هجري","2 هجري","3 هجري","4 هجري"],correct:1},
+{q:"كم عدد أجزاء القرآن الكريم؟",answers:["30","20","40","10"],correct:0},
+{q:"من أول الخلفاء الراشدين؟",answers:["عمر بن الخطاب","عثمان بن عفان","أبو بكر الصديق","علي بن أبي طالب"],correct:2},
+{q:"ما اسم الغار الذي كان فيه النبي ﷺ وأبو بكر يوم الهجرة؟",answers:["غار حراء","غار ثور","غار أحد","غار المروة"],correct:1},
+{q:"كم عدد أبواب الجنة؟",answers:["8","7","9","10"],correct:0},
+{q:"من أول مؤذن في الإسلام؟",answers:["بلال بن رباح","أبو هريرة","عبدالله بن مسعود","خالد بن الوليد"],correct:0},
+{q:"ما هو الركن الثاني من أركان الإسلام؟",answers:["الصلاة","الزكاة","الصوم","الشهادة"],correct:0},
+{q:"كم عدد السجدات في القرآن الكريم؟",answers:["15","14","13","16"],correct:0},
+{q:"ما اسم أم النبي محمد ﷺ؟",answers:["آمنة بنت وهب","خديجة بنت خويلد","حفصة بنت عمر","عائشة بنت أبي بكر"],correct:0},
+{q:"ما هي أول كلمة نزلت من القرآن؟",answers:["اقرأ","الحمد","بسم","الله"],correct:0},
+{q:"كم عدد الركعات في صلاة الظهر؟",answers:["4","2","3","5"],correct:0},
+{q:"من هو الصحابي الملقب بسيف الله المسلول؟",answers:["خالد بن الوليد","عمر بن الخطاب","علي بن أبي طالب","حمزة بن عبد المطلب"],correct:0},
+{q:"ما هي ثاني أكبر سورة في القرآن؟",answers:["الأعراف","النساء","آل عمران","المائدة"],correct:0},
+{q:"أي نبي ابتلعه الحوت؟",answers:["يونس","نوح","إبراهيم","موسى"],correct:0},
+{q:"ما اسم الغزوة التي وقعت في رمضان؟",answers:["بدر","أحد","الخندق","تبوك"],correct:0},
+{q:"ما الركن الرابع من أركان الإسلام؟",answers:["الصوم","الحج","الزكاة","الشهادة"],correct:0},
+{q:"من أول سفير في الإسلام؟",answers:["مصعب بن عمير","بلال بن رباح","أبو هريرة","سعد بن أبي وقاص"],correct:0},
+{q:"كم عدد أسماء الله الحسنى؟",answers:["99","100","98","97"],correct:0},
+{q:"ما اسم والد النبي ﷺ؟",answers:["عبدالله","عبدالمطلب","أبو طالب","حمزة"],correct:0},
+{q:"ما اسم الغار قبل البعثة؟",answers:["حراء","ثور","أحد","المروة"],correct:0},
+{q:"ما هي أطول آية في القرآن؟",answers:["آية الدين","آية الكرسي","التطهير","النور"],correct:0},
+{q:"كم عدد أشهر الحرم؟",answers:["4","3","2","5"],correct:0},
+{q:"ما القبلة الأولى للمسلمين؟",answers:["الأقصى","الكعبة","قباء","النبي"],correct:0},
+{q:"أي نبي تحدث كطفل؟",answers:["عيسى","محمد","موسى","إبراهيم"],correct:0},
+{q:"كم تكبيرات صلاة الجنازة؟",answers:["4","5","6","3"],correct:0},
+{q:"ما السورة التي لا تبدأ بالبسملة؟",answers:["التوبة","الأنفال","النساء","الإسراء"],correct:0},
+{q:"كم كان عمر النبي ﷺ عند الوفاة؟",answers:["63","60","65","62"],correct:0},
+{q:"من هو الفاروق؟",answers:["عمر بن الخطاب","علي","أبو بكر","عثمان"],correct:0},
+{q:"ما آخر سورة في القرآن؟",answers:["الناس","الفلق","الإخلاص","الكافرون"],correct:0},
+{q:"من أول من أسلم من الصبيان؟",answers:["علي","عبدالله بن مسعود","زيد","بلال"],correct:0},
+{q:"ما دعاء يونس من بطن الحوت؟",answers:["لا إله إلا أنت سبحانك إني كنت من الظالمين","رب زدني علماً","رب اشرح لي صدري","حسبنا الله ونعم الوكيل"],correct:0},
+{q:"كم حج النبي ﷺ؟",answers:["مرة واحدة","مرتان","ثلاث","لم يحج"],correct:0},
+{q:"أي سورة تعادل ثلث القرآن؟",answers:["الإخلاص","الفاتحة","الكوثر","النصر"],correct:0},
+{q:"من أول نبي بُعث؟",answers:["نوح","إبراهيم","آدم","موسى"],correct:0},
+{q:"كم مرة ورد اسم عيسى بالقرآن؟",answers:["25","30","20","15"],correct:0},
+{q:"ما اسم المسجد الذي أُسري إليه؟",answers:["الأقصى","الحرام","النبوي","قباء"],correct:0},
+{q:"كم كان عمر النبي ﷺ عند البعثة؟",answers:["40","35","45","50"],correct:0},
+{q:"ما أول صلاة فُرضت؟",answers:["الظهر","الفجر","المغرب","العصر"],correct:0},
+{q:"من لقب بذي النورين؟",answers:["عثمان","علي","أبو بكر","عمر"],correct:0},
+{q:"أقصر سورة؟",answers:["الكوثر","الإخلاص","النصر","الفلق"],correct:0},
+{q:"آخر خليفة راشد؟",answers:["علي","عمر","أبو بكر","عثمان"],correct:0},
+{q:"أي نبي رأى ذبح ابنه؟",answers:["إبراهيم","نوح","يعقوب","موسى"],correct:0},
+{q:"كم ركعة الواحد من الركوع؟",answers:["1","2","3","4"],correct:0},
+{q:"ما السورة التي تبدأ يا أيها المزمل؟",answers:["المزمل","المدثر","الفاتحة","الضحى"],correct:0},
+{q:"من جهر بالقرآن في مكة؟",answers:["عبدالله بن مسعود","بلال","عمار","أبو ذر"],correct:0},
+{q:"من أبو النبي ﷺ؟",answers:["عبدالله","عبدالمطلب","أبو طالب","حمزة"],correct:0},
+{q:"ما شهر الصيام؟",answers:["رمضان","شعبان","رجب","محرم"],correct:0},
+{q:"من أول رسول؟",answers:["نوح","آدم","إبراهيم","موسى"],correct:0},
+{q:"كم ركعات العصر؟",answers:["4","3","2","5"],correct:0},
+{q:"أي سورة ذُكرت فيها البسملة مرتين؟",answers:["النمل","الرحمن","الأنفال","التوبة"],correct:0},
+{q:"كم عدد حروف البسملة؟",answers:["19","20","18","21"],correct:0},
+{q:"ما اسم ملك الوحي؟",answers:["جبريل","ميكائيل","إسرافيل","عزرائيل"],correct:0},
+{q:"من خازن النار؟",answers:["مالك","رضوان","جبريل","عزرائيل"],correct:0},
+{q:"كم ركعات التراويح؟",answers:["20","8","12","15"],correct:0},
+{q:"أي نبي أتقن لغة الطير؟",answers:["سليمان","يوسف","إبراهيم","محمد"],correct:0},
+{q:"من اهتز عرش الرحمن لموته؟",answers:["سعد بن معاذ","سعد بن أبي وقاص","حمزة","مصعب"],correct:0},
+{q:"كم عدد ركعات الفجر؟",answers:["2","1","3","4"],correct:0},
+{q:"ما أول سورة نزلت مكية؟",answers:["العلق","الماعون","المدثر","الرحمن"],correct:0},
+{q:"ما اسم والدته؟",answers:["آمنة","خديجة","حفصة","عائشة"],correct:0},
+{q:"كم عدد أحاديث البخاري تقريبا؟",answers:["7000","4000","5000","6000"],correct:0},
+{q:"ما اسم صحابي جُندب؟",answers:["جُندب بن جراح","جُندب بن عبد الله","جُندب بن الحارث","جُندب بن مالك"],correct:0},
+{q:"ما اسم عاصفة الأحقاف؟",answers:["ريح الأحقاف","ريح نينوى","ريح حزرة","ريح عاصف"],correct:0},
+{q:"أول من كتب القرآن؟",answers:["علي","عثمان","أبو بكر","عمر"],correct:0},
+{q:"كم عدد آيات البقرة؟",answers:["286","200","300","250"],correct:0},
+{q:"ما اسم الصحابي الذي رُفع لبدنه؟",answers:["عمار بن ياسر","بلال","عائشة","أبو هريرة"],correct:0},
+{q:"من أول مدني؟",answers:["سورة البقرة","الفاتحة","الإخلاص","النصر"],correct:0},
+{q:"كم عدد آيات الكهف؟",answers:["110","90","100","120"],correct:0},
+{q:"ما اسم الجبل نفسه؟",answers:["الحراء","طور سيناء","أحد","ثعلبة"],correct:0},
+{q:"كم كانت مدة البعثة؟",answers:["23 سنة","25 سنة","20 سنة","30 سنة"],correct:0},
+{q:"من الصحابي الراوي؟",answers:["أنس بن مالك","سلمان الفارسي","عبد الله بن عباس","أبو هريرة"],correct:0},
+{q:"ما أول غزوة؟",answers:["بدر","أحد","الخندق","تبوك"],correct:0},
+{q:"كم عدد آيات الكوثر؟",answers:["3","4","5","2"],correct:0},
+{q:"من الصحابي حافظ القرآن الأول؟",answers:["بلال","عبد الله بن مسعود","عمّار","عثمان"],correct:0},
+{q:"ما اسم ناقة ثمود؟",answers:["الصابئة","البقرة","العقبة","الناقة"],correct:0},
+{q:"كم سنة مكثت مهاجرًا؟",answers:["13 سنة","10 سنوات","15 سنة","20 سنة"],correct:0},
+{q:"من هو الأمين؟",answers:["محمد ﷺ","علي","عمر","عثمان"],correct:0},
+{q:"أي الصحابيات أول هجرة؟",answers:["أسماء بنت أبي بكر","عائشة","حفصة","زينب"],correct:0},
+{q:"من هو جبل النور؟",answers:["الحراء","أحد","ثور","العريش"],correct:0},
+{q:"ما اسم صحابي وهب نفسه؟",answers:["عمار بن ياسر","بلال","علي","حمزة"],correct:0},
+{q:"من أول من كشف القرآن؟",answers:["علي","عثمان","خالد","بلال"],correct:0},
+{q:"كم عدد ركعات المغرب؟",answers:["3","2","4","1"],correct:0},
+{q:"ما اسم السورة التي ذكر فيها يوسف؟",answers:["يوسف","طه","الأعراف","يس"],correct:0},
+{q:"من أول من فتح مكة؟",answers:["محمد ﷺ","أبو بكر","عمر","عثمان"],correct:0},
+{q:"كم عدد آيات الإخلاص؟",answers:["4","5","3","6"],correct:0},
+{q:"ما اسم البحر الذي عبره موسى؟",answers:["النايل الأحمر","البحر الميت","البحر الأحمر","البحر الأبيض"],correct:0},
+{q:"من هو الصحابي صاحب القرآن المقروء؟",answers:["حفصة","عثمان","علي","أم سلمة"],correct:0},
+{q:"كم عدد آيات النور؟",answers:["64","50","70","80"],correct:0},
+{q:"ما اسم السورة التي تبدأ بكلمة ألم؟",answers:["ص","ق","العنكبوت","مرسلات"],correct:0},
+{q:"من أول من طاف بالبيت؟",answers:["إبراهيم","أبو بكر","محمد","عمر"],correct:0},
+{q:"كم عدد ركعات الفجر؟",answers:["2","1","3","4"],correct:0},
+{q:"ما اسم أخ النبي؟",answers:["قاسم","علي","إدريس","هارون"],correct:0},
+{q:"من أول مدّني خلقهم؟",answers:["سورة البقرة","الفاتحة","آل عمران","النساء"],correct:0},
+{q:"كم عدد سور القرآن؟",answers:["114","113","115","112"],correct:0},
+{q:"ما أول آية نزلت في السلم؟",answers:["آية الطلاق","آية البقرة","آية النساء","آية المائدة"],correct:0},
+{q:"من أول من قُتل شهيدًا؟",answers:["سعد بن أبي وقاص","حسن بن علي","مصعب بن عمير","حمزة"],correct:0},
+{q:"كم ركعات العصر؟",answers:["4","3","2","5"],correct:0},
+{q:"ما هو اسم والد النبي إبراهيم عليه السلام؟",answers:["آزر","تغلب","لوك","شعيب"],correct:0},
+{q:"في أي شهر فرضت فريضة الحج؟",answers:["شوال","ذو الحجة","ذو القعدة","شعبان"],correct:2},
+{q:"كم عدد الركعات في السنن الرواتب بعد صلاة العصر؟",answers:["2","4","0","6"],correct:0},
+{q:"ما اسم النبي الذي شدّ البحر بمعجزة؟",answers:["موسى عليه السلام","إبراهيم عليه السلام","عيسى عليه السلام","يونس عليه السلام"],correct:0},
+{q:"من هو الصحابي الذي جمع القرآن بعد وفاة النبي ﷺ؟",answers:["أبو بكر الصديق","عمر بن الخطاب","عثمان بن عفان","علي بن أبي طالب"],correct:2},
+{q:"ما هو اسم الأمين الذي لقب به النبي ﷺ؟",answers:["محمد","أمين","صادق","هاشمي"],correct:0},
+{q:"كم عدد سور القرآن التي تبدأ بحروف مقطعة؟",answers:["29","14","5","7"],correct:0},
+{q:"من هو النبي الذي تسمّى بالخليل؟",answers:["إبراهيم عليه السلام","موسى عليه السلام","داود عليه السلام","محمد ﷺ"],correct:0},
+{q:"كم عدد أحاديث البخاري تقريباً؟",answers:["7000","2000","5000","3000"],correct:0},
+{q:"ما اسم جبل عرفات؟",answers:["الرحمة","أحد","نور","الحراء"],correct:0},
+{q:"أي سورة نزلت بعد فاتحة الكتاب؟",answers:["البقرة","الأنعام","النساء","الشرح"],correct:0},
+{q:"كم سنة مكث النبي ﷺ في مكة؟",answers:["13","10","23","40"],correct:0},
+{q:"من هو أول من دعا بشلّة من الخلفاء الراشدين؟",answers:["أبو بكر","عمر","عثمان","علي"],correct:1},
+{q:"ما اسم عبد الرحمن الصحابي؟",answers:["عبد الرحمن بن عوف","عبد الرحمن بن عاص","عبد الرحمن بن أبي بكر","عبد الرحمن بن هشام"],correct:0},
+{q:"في أي غزوة استشهد حمزة عم النبي ﷺ؟",answers:["أحد","بدر","الخندق","تبوك"],correct:0},
+{q:"كم عدد آيات سورة الكهف؟",answers:["110","100","80","120"],correct:0},
+{q:"من الذي وضع أول مصحف في عهد النبي ﷺ؟",answers:["علي بن أبي طالب","عثمان بن عفان","أبو بكر","زيد بن ثابت"],correct:3},
+{q:"ما اسم السورة التي تتحدث عن سبع سماوات وسبع أراض؟",answers:["مريم","طه","الملك","البقرة"],correct:0},
+{q:"كم مرة وردت كلمة الجهاد في القرآن؟",answers:["41","51","31","21"],correct:0},
+{q:"من هو الصحابي الذي لقب بـ (قرّاء الظمآن)؟",answers:["بلال بن رباح","حسان بن ثابت","سلمان الفارسي","عبدالله بن رواحة"],correct:0},
+{q:"كم عدد المرابطين في صلح الحديبية؟",answers:["ألف","2000","3000","500"],correct:0},
+{q:"أين كانت غزوة الخندق؟",answers:["الأحزاب","بدر","أحد","تبوك"],correct:0},
+{q:"كم عدد الركعات في صلاة الكسوف؟",answers:["2 ركعتين","4 ركعات","6 ركعات","صلاة خشوع"],correct:0},
+{q:"من هو النبي صاحب الزبور؟",answers:["داود عليه السلام","موسى عليه السلام","عيسى عليه السلام","إبراهيم عليه السلام"],correct:0},
+{q:"ما اسم أخ النبي يوسف عليه السلام؟",answers:["أولاً: شقيق","بختنصر","هود","إسرائيل"],correct:3},
+{q:"كم عامًا مكث النبي ﷺ في المدينة؟",answers:["10 سنوات","23 عاما","13 عاما","5 سنوات"],correct:0},
+{q:"من الذي استشار النبي ﷺ بشأن الهجرة؟",answers:["أبو بكر","علي","عمر","عثمان"],correct:0},
+{q:"ما اسم العبادة التي تقام في المسجد الحرام بعد الحج؟",answers:["الطواف","السعي","العمرة","البدن"],correct:2},
+{q:"كم عدد الوقوف في الحج؟",answers:["3","2","1","4"],correct:0},
+{q:"في أي غزوة فتح مكة؟",answers:["8 هجري","2 هجري","3 هجري","6 هجري"],correct:0},
+{q:"من هو مؤسس الحلقات العلمية في المسجد النبوي؟",answers:["عمر بن الخطاب","عثمان بن عفان","علي بن أبي طالب","عمران بن حصين"],correct:3},
+{q:"ما اسم أول مسجد بني بعد الهجرة؟",answers:["قباء","الأقصى","الحراء","الخيف"],correct:0},
+{q:"كم عدد آيات آلام الكتاب في سورة الكهف؟",answers:["1","2","3","4"],correct:1},
+{q:"من هو الصحابي الذي كلمه العبدة؟",answers:["عمر بن الخطاب","زيد بن حارثة","أبو هريرة","مصعب بن عمير"],correct:1},
+{q:"كم عدد سور المدنيات؟",answers:["28","24","29","30"],correct:0},
+{q:"من هو النبي الذي كان يقود بني إسرائيل؟",answers:["موسى عليه السلام","هارون عليه السلام","عيسى عليه السلام","إبراهيم عليه السلام"],correct:0},
+{q:"كم عدد أسماء النبي محمد ﷺ المذكورة في القرآن؟",answers:["4","5","6","3"],correct:0},
+{q:"ما هو لفظ الجلالة الذي يبدأ بأول سورة؟",answers:["بسم","الحمد","الله","رحمن"],correct:0},
+{q:"من هو الإمام الذي جمع القرآن وأعطاه للسيدة حفصة؟",answers:["عثمان بن عفان","أبو بكر","عمر","زيد بن ثابت"],correct:0},
+{q:"كم عدد ركعات صلاة الضحى؟",answers:["2","4","8","12"],correct:1},
+{q:"ما اسم النبي الذي عجز الجمل له؟",answers:["صالح عليه السلام","هود عليه السلام","سليمان عليه السلام","يعقوب عليه السلام"],correct:0},
+{q:"في أي غزوة قتل زيد بن حارثة؟",answers:["أحد","خندق","بدر","تبوك"],correct:1},
+{q:"كم عدد المرات التي وردت فيها كلمة (آمنوا) في القرآن؟",answers:["xx","yy","zz","qq"],correct:0},
+{q:"ما اسم السورة التي أنزلت بعد التوبة؟",answers:["يونس","هود","فاطر","فاطر"],correct:0},
+{q:"كم عدد ركعات صلاة قيام الليل عند النبي ﷺ؟",answers:["11-13","8","5","20"],correct:0},
+{q:"في أي عام بُني المسجد النبوي؟",answers:["1 هجري","2 هجري","3 هجري","4 هجري"],correct:0},
+{q:"ما اسم أول هجرة للمسلمين؟",answers:["الرضوان","بعث","إلى الحبشة","المدينة"],correct:2},
+{q:"من هو الصحابي الذي كان مؤذناً في الجنة؟",answers:["بلال بن رباح","بلال بن يزيد","بلال بن عمرو","بلال بن سعد"],correct:0},
+{q:"ما اسم السورة التي تسمّى العمود؟",answers:["يوسف","الرحمن","الرعد","الكهف"],correct:0},
+{q:"من هو الصحابي الذي كتب الوحي للنبي ﷺ؟",answers:["زيد بن ثابت","معاذ بن جبل","عبدالله بن مسعود","علي بن أبي طالب"],correct:0},
+{q:"كم عمر النبي عندما فتح مكة؟",answers:["630 عام","40 عام","52عامًا","70عامًا"],correct:0},
+{q:"ما اسم عورة المرأة؟",answers:["من السرة إلى الركبة","ركبة","حلمة","الكتف"],correct:0},
+{q:"في أي سورة يوجد آية (يا أيها الناس اتقوا ربكم)؟",answers:["الحج","البقرة","آل عمران","النساء"],correct:0},
+{q:"كم عدد أيام التشريق؟",answers:["3","4","5","2"],correct:0},
+{q:"ما هو اسم والدة لقمان الحكيم؟",answers:["غير مذكور","سمية","خديجة","مريم"],correct:0},
+{q:"من هو النبي الحاكم بالعدل؟",answers:["سليمان عليه السلام","داود عليه السلام","إبراهيم عليه السلام","محمد ﷺ"],correct:0},
+{q:"كم عدد الركعات في صلاة الاستسقاء؟",answers:["2","4","3","1"],correct:0},
+{q:"ما اسم المسجد الذي بنته أم كلثوم؟",answers:["أم كلثوم","النبي","أحد","قباء"],correct:0},
+{q:"من هو النبي الذي رُفع بجسده؟",answers:["عيسى عليه السلام","محمد ﷺ","موسى عليه السلام","إبراهيم عليه السلام"],correct:0},
+{q:"كم مرة ورد اسم سورة القصص؟",answers:["1","2","3","4"],correct:0},
+{q:"ما اسم أول آية من سورة الكوثر؟",answers:["إنا أعطيناك الكوثر","بسم الله الرحمن الرحيم","إقرأ","الحمد لله"],correct:0},
+{q:"من هي المرأة الوحيدة التي ورد ذكرها بالاسم في القرآن؟",answers:["مريم عليها السلام","آسية","خديجة","حفصة"],correct:0},
+{q:"كم عدد الرقباء في الإسلام؟",answers:["لا تحدد","4","3","2"],correct:0},
+{q:"من هو أول نبي خط بالقلم؟",answers:["إدريس عليه السلام","نوح عليه السلام","إبراهيم عليه السلام","محمد ﷺ"],correct:0},
+{q:"كم مرة ورد اسم الجلالة (الله) في القرآن الكريم؟",answers:["2699","3000","1999","1500"],correct:0},
+{q:"من هو الصحابي الذي كانت الملائكة تسلم عليه؟",answers:["عمران بن حصين","سعد بن معاذ","بلال بن رباح","أبو هريرة"],correct:0},
+{q:"في أي سورة وردت آية الكرسي؟",answers:["البقرة","آل عمران","النساء","المائدة"],correct:0},
+{q:"من هو النبي الذي دعا ربه: (رب لا تذرني فردا وأنت خير الوارثين)؟",answers:["زكريا عليه السلام","إبراهيم عليه السلام","موسى عليه السلام","محمد ﷺ"],correct:0},
+{q:"كم عدد سنين الدعوة السرية للنبي ﷺ؟",answers:["3 سنوات","5 سنوات","7 سنوات","10 سنوات"],correct:0},
+{q:"من هو أول من قاتل بالسيف في سبيل الله؟",answers:["الزبير بن العوام","علي بن أبي طالب","خالد بن الوليد","حمزة بن عبد المطلب"],correct:0},
+{q:"كم عدد السور المكية في القرآن الكريم؟",answers:["86","28","114","30"],correct:0},
+{q:"ما اسم زوجة فرعون التي آمنت بموسى عليه السلام؟",answers:["آسية بنت مزاحم","مريم","خديجة","أم جميل"],correct:0},
+{q:"ما هي السورة التي سميت بقلب القرآن؟",answers:["يس","الفاتحة","الإخلاص","النصر"],correct:0},
+{q:"كم عدد سور جزء عم؟",answers:["37","35","39","40"],correct:0},
+{q:"من هو الصحابي الذي قال عنه النبي ﷺ: (لو كان بعدي نبي لكان هو)؟",answers:["عمر بن الخطاب","أبو بكر الصديق","علي بن أبي طالب","عثمان بن عفان"],correct:0},
+{q:"في أي عام كانت الهجرة النبوية؟",answers:["622م","610م","632م","615م"],correct:0},
+{q:"ما اسم الصحابي الذي نزلت فيه سورة عبس؟",answers:["عبدالله بن أم مكتوم","بلال بن رباح","أبو هريرة","سلمان الفارسي"],correct:0},
+{q:"ما اسم جبل مكة المشرف؟",answers:["جبل النور","جبل أحد","جبل عرفات","جبل الرحمة"],correct:0},
+{q:"كم كان عمر النبي ﷺ عندما توفي؟",answers:["63 سنة","60 سنة","65 سنة","62 سنة"],correct:0},
+{q:"من هو أول من استشهد في الإسلام؟",answers:["سمية بنت خياط","عمار بن ياسر","حمزة بن عبد المطلب","خباب بن الأرت"],correct:0},
+{q:"ما اسم الصحابي الملقب بحبر الأمة؟",answers:["عبدالله بن عباس","عبدالله بن عمر","عبدالله بن مسعود","زيد بن ثابت"],correct:0},
+{q:"من هو النبي الذي أُرسل إلى مدين؟",answers:["شعيب عليه السلام","هود عليه السلام","صالح عليه السلام","يونس عليه السلام"],correct:0},
+{q:"كم عدد ركعات صلاة المغرب؟",answers:["3","2","4","5"],correct:0},
+{q:"من هو الصحابي الذي أشار بحفر الخندق؟",answers:["سلمان الفارسي","أبو عبيدة","بلال بن رباح","زيد بن حارثة"],correct:0},
+{q:"ما اسم السورة التي فيها بسملتين؟",answers:["النمل","الرحمن","الأنفال","التوبة"],correct:0},
+{q:"من هو النبي الذي آمن له جميع قومه؟",answers:["يونس عليه السلام","موسى عليه السلام","محمد ﷺ","نوح عليه السلام"],correct:0},
+{q:"كم عدد السجدات في المصحف الشريف؟",answers:["15","14","16","13"],correct:0},
+{q:"ما اسم الصحابي الذي نام في فراش النبي ﷺ ليلة الهجرة؟",answers:["علي بن أبي طالب","أبو بكر الصديق","عمر بن الخطاب","عثمان بن عفان"],correct:0},
+{q:"ما هي أول صلاة صلاها النبي ﷺ؟",answers:["الظهر","الفجر","العصر","المغرب"],correct:0},
+{q:"من هو النبي الذي أُمر بذبح ابنه؟",answers:["إبراهيم عليه السلام","نوح عليه السلام","يعقوب عليه السلام","يوسف عليه السلام"],correct:0},
+{q:"في أي غزوة استشهد مصعب بن عمير؟",answers:["أحد","بدر","الخندق","تبوك"],correct:0},
+{q:"كم عدد سور القرآن الكريم؟",answers:["114","113","112","115"],correct:0},
+{q:"ما اسم زوجة النبي ﷺ التي لُقبت بأم المؤمنين؟",answers:["خديجة بنت خويلد","عائشة بنت أبي بكر","حفصة بنت عمر","أم سلمة"],correct:0},
+{q:"من هو مؤذن الرسول ﷺ في المدينة؟",answers:["بلال بن رباح","عبدالله بن أم مكتوم","سلمان الفارسي","أبو ذر الغفاري"],correct:0},
+{q:"ما اسم السورة التي نزلت كاملة دفعة واحدة؟",answers:["الأنعام","النصر","الكوثر","الإخلاص"],correct:0},
+{q:"من هو الصحابي الذي نزل فيه قوله تعالى (وما رميت إذ رميت ولكن الله رمى)؟",answers:["محمد ﷺ","علي بن أبي طالب","أبو بكر الصديق","عمر بن الخطاب"],correct:0},
+{q:"ما هو أول مسجد بني في الإسلام؟",answers:["قباء","الأقصى","المسجد الحرام","المسجد النبوي"],correct:0},
+{q:"كم عدد سور جزء تبارك؟",answers:["11","10","9","12"],correct:0},
+{q:"من هو الصحابي الذي لُقب بـ (ترجمان القرآن)؟",answers:["عبدالله بن عباس","عبدالله بن مسعود","زيد بن ثابت","علي بن أبي طالب"],correct:0},
+{q:"ما اسم السورة التي فيها آية الكرسي؟",answers:["البقرة","آل عمران","النساء","المائدة"],correct:0},
+{q:"من هو النبي الذي بنى الكعبة؟",answers:["إبراهيم عليه السلام","محمد ﷺ","نوح عليه السلام","موسى عليه السلام"],correct:0},
+{q:"ما اسم الغزوة التي نزلت فيها سورة الأنفال؟",answers:["غزوة بدر","أحد","الخندق","تبوك"],correct:0},
+{q:"من هو أول من أسلم من الرجال؟",answers:["أبو بكر الصديق","علي بن أبي طالب","عثمان بن عفان","عمر بن الخطاب"],correct:0},
+{q:"ما اسم آخر خليفة عباسي؟",answers:["المستعصم بالله","المعتصم بالله","المأمون","المهدي"],correct:0},
+{q:"في أي ليلة نزل القرآن الكريم؟",answers:["ليلة القدر","ليلة الإسراء","ليلة المعراج","ليلة النصف من شعبان"],correct:0},
+{q:"ما اسم الصحابي الذي حمل لواء المسلمين في بدر؟",answers:["مصعب بن عمير","بلال بن رباح","عمار بن ياسر","حمزة بن عبدالمطلب"],correct:0},
+{q:"من هو الصحابي الذي كان كاتمًا لأسرار النبي ﷺ؟",answers:["حذيفة بن اليمان","عبدالله بن مسعود","سلمان الفارسي","زيد بن ثابت"],correct:0},
+{q:"كم مرة ورد اسم موسى عليه السلام في القرآن الكريم؟",answers:["136 مرة","150 مرة","120 مرة","100 مرة"],correct:0},
+{q:"ما اسم السورة التي بدأت بلفظ (الحمد لله)؟",answers:["الفاتحة","الأنعام","الكهف","فاطر"],correct:0},
+{q:"من هو الصحابي الذي سُمي بذي الشهادتين؟",answers:["خزيمة بن ثابت","أنس بن مالك","عبدالله بن عمر","عبدالله بن عباس"],correct:0},
+{q:"كم عدد أبواب النار؟",answers:["7","8","9","6"],correct:0},
+{q:"من هو أول نبي أنزل عليه التوراة؟",answers:["موسى عليه السلام","عيسى عليه السلام","محمد ﷺ","إبراهيم عليه السلام"],correct:0},
+{q:"ما اسم الجبل الذي تجلى عليه الله لموسى عليه السلام؟",answers:["جبل الطور","جبل أحد","جبل الرحمة","جبل عرفات"],correct:0},
+{q:"كم عدد ركعات صلاة الفجر مع السنة؟",answers:["4","2","6","8"],correct:0},
+{q:"من هو الصحابي الذي سُمّي أسد الله؟",answers:["حمزة بن عبدالمطلب","عمر بن الخطاب","خالد بن الوليد","علي بن أبي طالب"],correct:0},
+{q:"ما اسم سورة بني إسرائيل؟",answers:["الإسراء","الكهف","يوسف","مريم"],correct:0},
+{q:"من هو النبي الذي تركه قومه في البحر؟",answers:["يونس عليه السلام","موسى عليه السلام","إبراهيم عليه السلام","نوح عليه السلام"],correct:0},
+{q:"كم عدد الليالي العشر التي ورد ذكرها في القرآن؟",answers:["10","7","3","5"],correct:0},
+];
+
+// ✅ ترتيب عشوائي للأسئلة
+questions.sort(() => Math.random() - 0.5);
+
+let score=0,mistakes=0,currentQuestion=0,timer,timeLeft=15;
+
+function startGame(){
+    initAudio();
+    createClickSound();
+    document.getElementById("start-screen").style.display="none";
+    document.getElementById("quiz-container").style.display="block";
+    showQuestion();
+}
+
+function showPopup(msg){
+    const p=document.getElementById("popup");
+    p.textContent=msg;
+    p.style.display="block";
+    setTimeout(()=>{p.style.display="none"},1500);
+}
+
+function showQuestion(){
+    if(mistakes>=3){
+        createLoseSound();
+        document.getElementById("quiz-container").style.display="none";
+        document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-sad-tear'></i> لقد خسرت!</h2><p style='margin: 20px 0; font-size: 18px;'>لا تستسلم! حاول مرة أخرى</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
+        document.getElementById("end-screen").style.display="block";
+        return;
+    }
+    if(currentQuestion>=questions.length){
+        document.getElementById("quiz-container").style.display="none";
+        document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-star'></i> مبروك! لقد أكملت جميع الأسئلة!</h2><p style='margin: 20px 0; font-size: 18px;'>النقاط النهائية: " + score + "</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
+        document.getElementById("end-screen").style.display="block";
+        return;
+    }
+    let q=questions[currentQuestion];
+    // Shuffle answers and update correct index
+    let answerObjs = q.answers.map((a, idx) => ({text: a, isCorrect: idx === q.correct}));
+    for (let i = answerObjs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [answerObjs[i], answerObjs[j]] = [answerObjs[j], answerObjs[i]];
+    }
+    let newCorrectIdx = answerObjs.findIndex(a => a.isCorrect);
+    q.answers = answerObjs.map(a => a.text);
+    q.correct = newCorrectIdx;
+    document.getElementById("question").textContent=q.q;
+    let aDiv=document.getElementById("answers");
+    aDiv.innerHTML="";
+    q.answers.forEach((ans,i)=>{
+        const btn=document.createElement("button");
+        btn.textContent=ans;
+        btn.className="answer-btn";
+        btn.style.animationDelay = (i * 0.1) + "s";
+        btn.disabled = false;
+        btn.style.pointerEvents = 'auto';
+        btn.style.cursor = 'pointer';
+        btn.onclick=()=>{
+            initAudio();
+            createClickSound();
+            checkAnswer(i);
+        };
+        aDiv.appendChild(btn);
+    });
+    resetTimer();
+}
+
+function resetTimer(){
+    clearInterval(timer);
+    timeLeft=15;
+    document.getElementById("timer").textContent=timeLeft;
+    timer=setInterval(()=>{
+        timeLeft--;
+        document.getElementById("timer").textContent=timeLeft;
+        if(timeLeft==5){
+            createWarningSound();
+        }
+        if(timeLeft<=0){
+            clearInterval(timer);
+            autoWrong();
+        }
+    },1000);
+}
+
+function autoWrong(){
+    const correct = questions[currentQuestion].correct;
+    const allButtons = document.querySelectorAll(".answer-btn");
+    
+    // Disable all buttons
+    allButtons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.pointerEvents = 'none';
+        btn.style.cursor = 'default';
+    });
+    
+    // Show correct answer in green
+    allButtons[correct].classList.add("correct");
+    
+    createWrongSound();
+    mistakes++;
+    document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;
+    setTimeout(()=>{currentQuestion++;showQuestion();},2000);
+}
+
+function checkAnswer(selected){
+    clearInterval(timer);
+    const correct=questions[currentQuestion].correct;
+    const allButtons = document.querySelectorAll(".answer-btn");
+    
+    // Disable all buttons to prevent multiple clicks
+    allButtons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.pointerEvents = 'none';
+        btn.style.cursor = 'default';
+    });
+    
+    if(selected===correct){
+        allButtons[selected].classList.add("correct");
+        createCorrectSound();
+        score++;
+        if(score==5){
+            showPopup("كفو عليك!");
+            createClapSound();
+        }
+        if(score==10){
+            showPopup("أنت بطل!");
+            createClapSound();
+        }
+        if(score==20){
+            document.getElementById("quiz-container").style.display="none";
+            document.getElementById("end-screen").style.display="block";
+            return;
+        }
+    }else{
+        // Show wrong answer in red
+        allButtons[selected].classList.add("wrong");
+        // Show correct answer in green
+        allButtons[correct].classList.add("correct");
+        createWrongSound();
+        mistakes++;
+    }
+    document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;
+    setTimeout(()=>{currentQuestion++;showQuestion();},2000);
+}
+
+function restartGame(){
+    initAudio();
+    createClickSound();
+    score=0;
+    mistakes=0;
+    currentQuestion=0;
+    // Shuffle questions for new game
+    questions.sort(() => Math.random() - 0.5);
+    document.getElementById("quiz-container").style.display="block";
+    document.getElementById("end-screen").style.display="none";
+    document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;
+    showQuestion();
+}
+
+function goToHomepage(){
+    initAudio();
+    createClickSound();
+    score=0;
+    mistakes=0;
+    currentQuestion=0;
+    clearInterval(timer);
+    timer = null;
+    timeLeft = 15;
+    document.getElementById("start-screen").style.display="block";
+    document.getElementById("quiz-container").style.display="none";
+    document.getElementById("end-screen").style.display="none";
+    document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;
+    questions.sort(() => Math.random() - 0.5);
+}
+</script>
+</body>
+</html>
