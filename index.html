@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لعبة FNE - 200 سؤال</title>
+  <style>
+    body { background: linear-gradient(to bottom, #e0f7fa, #ffffff); font-family: 'Cairo', sans-serif; text-align: center; direction: rtl; margin: 0; padding: 0; }
+    h1 { color: #00796b; margin-top: 20px; }
+    .container { margin: 20px auto; max-width: 600px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .question { font-size: 1.5em; margin-bottom: 20px; }
+    .option { background: #e0f2f1; border: 2px solid #00796b; border-radius: 8px; padding: 10px; margin: 10px; cursor: pointer; transition: all 0.3s ease; font-size: 1.2em; }
+    .option:hover { background: #b2dfdb; }
+    .correct { background-color: #a5d6a7 !important; color: #2e7d32; }
+    .wrong { background-color: #ef9a9a !important; color: #c62828; }
+    .score { margin-top: 15px; font-size: 1.2em; }
+    .end-message { font-size: 1.8em; margin-top: 30px; color: #00796b; }
+    button { padding: 10px 20px; background: #00796b; color: white; border: none; border-radius: 8px; font-size: 1.2em; cursor: pointer; }
+    button:hover { background: #004d40; }
+  </style>
+</head>
+<body>
+  <h1>لعبة FNE</h1>
+  <div class="container">
+    <div id="game">
+      <div class="question" id="question"></div>
+      <div id="options"></div>
+      <div class="score" id="score">النقاط: 0 | الأخطاء: 0</div>
+    </div>
+    <div id="end" style="display:none;">
+      <div class="end-message" id="endMessage"></div>
+      <button onclick="restartGame()">إعادة اللعب</button>
+    </div>
+  </div>
+  <script>
+    const questions = [
+      {q:"ما هي عاصمة السعودية؟", options:["الرياض","مكة","جدة","المدينة"], answer:"الرياض"},
+      {q:"كم عدد أركان الإسلام؟", options:["5","4","6","3"], answer:"5"},
+      {q:"من أول الخلفاء الراشدين؟", options:["أبو بكر الصديق","عمر بن الخطاب","عثمان بن عفان","علي بن أبي طالب"], answer:"أبو بكر الصديق"}
+    ];
+    let currentScore=0, mistakes=0, askedQuestions=[];
+    function shuffle(a){ for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}}
+    function askQuestion(){
+      if(currentScore>=13){ endGame("🎉 تهانينا! لقد ربحت اللعبة!"); return; }
+      if(mistakes>=3){ endGame("❌ للأسف! لقد خسرت."); return; }
+      let rem=questions.filter(q=>!askedQuestions.includes(q.q));
+      if(rem.length===0){ askedQuestions=[]; rem=[...questions]; }
+      let qObj=rem[Math.floor(Math.random()*rem.length)];
+      askedQuestions.push(qObj.q);
+      document.getElementById("question").innerText=qObj.q;
+      const optC=document.getElementById("options"); optC.innerHTML="";
+      let shuffled=[...qObj.options]; shuffle(shuffled);
+      shuffled.forEach(opt=>{
+        let btn=document.createElement("div");
+        btn.className="option"; btn.innerText=opt;
+        btn.onclick=()=>checkAnswer(btn,opt,qObj.answer);
+        optC.appendChild(btn);
+      });
+      document.getElementById("score").innerText=`النقاط: ${currentScore} | الأخطاء: ${mistakes}`;
+    }
+    function checkAnswer(btn,sel,correct){
+      if(sel===correct){ btn.classList.add("correct"); currentScore++; } 
+      else { btn.classList.add("wrong"); document.querySelectorAll(".option").forEach(o=>{ if(o.innerText===correct) o.classList.add("correct"); }); mistakes++; }
+      setTimeout(askQuestion,1000);
+    }
+    function endGame(msg){
+      document.getElementById("game").style.display="none";
+      document.getElementById("end").style.display="block";
+      document.getElementById("endMessage").innerText=msg;
+    }
+    function restartGame(){
+      currentScore=0; mistakes=0; askedQuestions=[];
+      document.getElementById("game").style.display="block"; document.getElementById("end").style.display="none";
+      askQuestion();
+    }
+    askQuestion();
+  </script>
+</body>
+</html>
