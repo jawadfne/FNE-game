@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة FNE الإسلامية</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f1f8e9; text-align: center; padding: 20px; }
+        .question-box { background: white; padding: 20px; margin: 20px auto; border-radius: 10px; width: 95%; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .timer { font-size: 24px; color: #d32f2f; margin-bottom: 10px; }
+        .option { background: #e0f7fa; padding: 10px; margin: 8px auto; border-radius: 8px; border: 1px solid #0097a7; width: 90%; cursor: pointer; }
+        .option:hover { background: #b2ebf2; }
+        .correct { background-color: #a5d6a7 !important; color: #1b5e20; }
+        .wrong { background-color: #ef9a9a !important; color: #b71c1c; }
+        #score { font-size: 18px; margin-top: 15px; }
+        #end-message { font-size: 22px; color: #d32f2f; margin-top: 20px; }
+        #restart-btn { margin-top: 20px; padding: 10px 20px; background: #00796b; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; }
+        #restart-btn:hover { background: #004d40; }
+    </style>
+</head>
+<body>
+    <h1>لعبة FNE الإسلامية</h1>
+    <div class="question-box" id="quiz-box">
+        <div class="timer" id="timer">15</div>
+        <p id="question">جارٍ التحميل...</p>
+        <div id="choices"></div>
+    </div>
+    <div id="score">النقاط: 0 | الأخطاء: 0</div>
+    <div id="end-message" style="display:none;"></div>
+    <button id="restart-btn" style="display:none;" onclick="restartGame()">إعادة المحاولة</button>
+    <script>
+        const questions = [{"q": "ما هي السورة التي تُسمى قلب القرآن؟", "a": "يس", "choices": ["البقرة", "الإخلاص", "الفاتحة"]}, {"q": "كم عدد أركان الإسلام؟", "a": "5", "choices": ["6", "4", "7"]}, {"q": "من أول الخلفاء الراشدين؟", "a": "أبو بكر الصديق", "choices": ["عمر بن الخطاب", "عثمان بن عفان", "علي بن أبي طالب"]}, {"q": "ما اسم الغار الذي كان فيه النبي ﷺ وأبو بكر يوم الهجرة؟", "a": "غار ثور", "choices": ["غار حراء", "غار أحد", "غار المروة"]}, {"q": "من أول مؤذن في الإسلام؟", "a": "بلال بن رباح", "choices": ["أبو هريرة", "عبدالله بن مسعود", "خالد بن الوليد"]}, {"q": "ما هو الركن الثاني من أركان الإسلام؟", "a": "الصلاة", "choices": ["الزكاة", "الصوم", "الشهادة"]}, {"q": "كم عدد آيات سورة الفاتحة؟", "a": "7", "choices": ["6", "8", "5"]}, {"q": "ما هو أول مسجد بُني في الإسلام؟", "a": "مسجد قباء", "choices": ["المسجد النبوي", "المسجد الحرام", "المسجد الأقصى"]}, {"q": "من هو الصحابي الذي لقبه النبي ﷺ بـ أمين هذه الأمة؟", "a": "أبو عبيدة بن الجراح", "choices": ["سعد بن أبي وقاص", "معاذ بن جبل", "أنس بن مالك"]}, {"q": "في أي شهر فرض صيام رمضان؟", "a": "شعبان", "choices": ["رمضان", "محرم", "رجب"]}, {"q": "ما هي أطول سورة في القرآن الكريم؟", "a": "البقرة", "choices": ["آل عمران", "النساء", "الأعراف"]}, {"q": "كم عدد الصلوات المفروضة يوميًا؟", "a": "5", "choices": ["3", "4", "6"]}, {"q": "من هو الصحابي الملقب بـ الفاروق؟", "a": "عمر بن الخطاب", "choices": ["علي بن أبي طالب", "عثمان بن عفان", "أبو بكر الصديق"]}, {"q": "ما هي الكعبة المشرفة؟", "a": "قبلة المسلمين", "choices": ["مسجد في الشام", "مقام إبراهيم", "مسجد قباء"]}, {"q": "كم عدد أشهر السنة الهجرية؟", "a": "12", "choices": ["10", "11", "13"]}, {"q": "ما اسم النبي الذي ابتلعه الحوت؟", "a": "يونس", "choices": ["موسى", "إبراهيم", "نوح"]}, {"q": "ما هو اسم أم النبي محمد ﷺ؟", "a": "آمنة بنت وهب", "choices": ["خديجة بنت خويلد", "حفصة بنت عمر", "أسماء بنت أبي بكر"]}, {"q": "ما اسم الجبل الذي كلم الله عليه موسى عليه السلام؟", "a": "جبل الطور", "choices": ["جبل أحد", "جبل عرفات", "جبل النور"]}, {"q": "ما هي أول صلاة فُرضت على المسلمين؟", "a": "صلاة الظهر", "choices": ["صلاة الفجر", "صلاة العصر", "صلاة المغرب"]}, {"q": "ما هي ثاني أكبر سورة في القرآن الكريم؟", "a": "الأعراف", "choices": ["النساء", "آل عمران", "المائدة"]}, {"q": "من هو الصحابي الذي نام في فراش النبي ليلة الهجرة؟", "a": "علي بن أبي طالب", "choices": ["أبو بكر الصديق", "عمر بن الخطاب", "عثمان بن عفان"]}, {"q": "ما هي أول كلمة نزلت من القرآن؟", "a": "اقرأ", "choices": ["الحمد", "بسم", "الله"]}, {"q": "من هو أول الأنبياء؟", "a": "آدم عليه السلام", "choices": ["نوح عليه السلام", "إبراهيم عليه السلام", "موسى عليه السلام"]}, {"q": "ما اسم المسجد الذي أسرى بالنبي إليه؟", "a": "المسجد الأقصى", "choices": ["المسجد النبوي", "المسجد الحرام", "مسجد قباء"]}, {"q": "ما هي أول معركة في الإسلام؟", "a": "بدر", "choices": ["أحد", "الخندق", "حنين"]}, {"q": "كم مرة ورد اسم محمد في القرآن؟", "a": "4", "choices": ["3", "5", "6"]}, {"q": "من هو النبي الذي بنى السفينة؟", "a": "نوح عليه السلام", "choices": ["إبراهيم عليه السلام", "موسى عليه السلام", "يونس عليه السلام"]}, {"q": "ما هو لقب حمزة بن عبد المطلب؟", "a": "أسد الله", "choices": ["ذو النورين", "الصديق", "الفاروق"]}, {"q": "كم عدد السجدات في القرآن الكريم؟", "a": "15", "choices": ["14", "16", "17"]}, {"q": "ما هو الدعاء الذي علمه النبي ليونس في بطن الحوت؟", "a": "لا إله إلا أنت سبحانك إني كنت من الظالمين", "choices": ["رب زدني علما", "رب اشرح لي صدري", "حسبنا الله ونعم الوكيل"]}, {"q": "كم عدد أبواب الجنة؟", "a": "8", "choices": ["7", "9", "10"]}, {"q": "من هو النبي الذي جاء بعد عيسى عليه السلام؟", "a": "محمد ﷺ", "choices": ["نوح عليه السلام", "موسى عليه السلام", "إبراهيم عليه السلام"]}, {"q": "من هو الصحابي الذي كتب الوحي؟", "a": "زيد بن ثابت", "choices": ["أبو هريرة", "عبدالله بن مسعود", "بلال بن رباح"]}, {"q": "ما اسم المدينة التي هاجر إليها النبي؟", "a": "المدينة المنورة", "choices": ["مكة", "الطائف", "بدر"]}, {"q": "كم مرة ورد اسم مكة في القرآن؟", "a": "مرة واحدة", "choices": ["مرتين", "ثلاث مرات", "أربع مرات"]}, {"q": "ما اسم سورة التوحيد؟", "a": "الإخلاص", "choices": ["الفاتحة", "الكوثر", "الناس"]}, {"q": "كم عدد الرُكعات في صلاة الفجر؟", "a": "2", "choices": ["3", "4", "5"]}, {"q": "ما هو اسم الجبل الذي وقعت عليه معركة أحد؟", "a": "جبل أحد", "choices": ["جبل النور", "جبل الطور", "جبل عرفات"]}, {"q": "كم كان عمر النبي ﷺ عندما توفي؟", "a": "63 سنة", "choices": ["60 سنة", "65 سنة", "62 سنة"]}, {"q": "ما اسم الحجر الذي وضعه النبي في الكعبة؟", "a": "الحجر الأسود", "choices": ["المقام", "الميقات", "الحجر المربع"]}, {"q": "ما اسم زوجة فرعون التي آمنت؟", "a": "آسيا بنت مزاحم", "choices": ["بلقيس", "هاجر", "زينب"]}];
+        let currentQuestion = 0;
+        let score = 0;
+        let errors = 0;
+        let timer;
+        let timeLeft = 15;
+
+        function shuffle(array) { 
+            for (let i = array.length - 1; i > 0; i--) { 
+                const j = Math.floor(Math.random() * (i + 1)); 
+                [array[i], array[j]] = [array[j], array[i]]; 
+            } 
+        }
+
+        function showQuestion() {
+            if (errors >= 3) {
+                endGame("لقد خسرت! حاول مرة أخرى.");
+                return;
+            }
+            if (currentQuestion >= questions.length) {
+                endGame("🎉 تهانينا! لقد ربحت اللعبة!");
+                return;
+            }
+            let q = questions[currentQuestion];
+            document.getElementById("question").innerText = q.q;
+            let allChoices = [q.a, ...q.choices];
+            shuffle(allChoices);
+            let html = "";
+            allChoices.forEach(choice => {
+                html += `<div class="option" onclick="checkAnswer(this, \`${choice}\`, \`${q.a}\`)">${choice}</div>`;
+            });
+            document.getElementById("choices").innerHTML = html;
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timeLeft = 15;
+            document.getElementById("timer").innerText = timeLeft;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    autoWrong();
+                }
+            }, 1000);
+        }
+
+        function autoWrong() {
+            Array.from(document.querySelectorAll(".option")).forEach(btn => {
+                if (btn.innerText === questions[currentQuestion].a) btn.classList.add("correct");
+                else btn.classList.add("wrong");
+                btn.onclick = null;
+            });
+            errors++;
+            document.getElementById("score").innerText = `النقاط: ${score} | الأخطاء: ${errors}`;
+            setTimeout(() => { currentQuestion++; showQuestion(); }, 1500);
+        }
+
+        function checkAnswer(element, selected, correct) {
+            clearInterval(timer);
+            if (selected === correct) {
+                element.classList.add("correct");
+                score++;
+            } else {
+                element.classList.add("wrong");
+                Array.from(document.querySelectorAll(".option")).forEach(btn => {
+                    if (btn.innerText === correct) btn.classList.add("correct");
+                });
+                errors++;
+            }
+            document.getElementById("score").innerText = `النقاط: ${score} | الأخطاء: ${errors}`;
+            Array.from(document.querySelectorAll(".option")).forEach(btn => btn.onclick = null);
+            setTimeout(() => { currentQuestion++; showQuestion(); }, 1500);
+        }
+
+        function endGame(message) {
+            document.getElementById("quiz-box").style.display = "none";
+            document.getElementById("end-message").style.display = "block";
+            document.getElementById("end-message").innerText = message;
+            document.getElementById("restart-btn").style.display = "inline-block";
+        }
+
+        function restartGame() {
+            currentQuestion = 0;
+            score = 0;
+            errors = 0;
+            document.getElementById("quiz-box").style.display = "block";
+            document.getElementById("end-message").style.display = "none";
+            document.getElementById("restart-btn").style.display = "none";
+            document.getElementById("score").innerText = "النقاط: 0 | الأخطاء: 0";
+            showQuestion();
+        }
+
+        shuffle(questions);
+        showQuestion();
+    </script>
+</body>
+</html>
