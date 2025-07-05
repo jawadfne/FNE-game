@@ -556,7 +556,7 @@ h1:hover .title-text {
 
 <!-- محتوى اللعبة -->
 <div id="quiz-container">
-    <div class="timer" id="timer">15</div>
+    <div class="timer" id="timer">30</div>
     <div id="question" class="question">جارٍ التحميل...</div>
     <div id="answers" class="answers-grid"></div>
     <div id="score">النقاط: 0 | الأخطاء: 0</div>
@@ -892,7 +892,7 @@ const questions = [
 // ✅ ترتيب عشوائي للأسئلة
 questions.sort(() => Math.random() - 0.5);
 
-let score=0,mistakes=0,currentQuestion=0,timer,timeLeft=15,playerName="";
+let score=0,mistakes=0,currentQuestion=0,timer,timeLeft=30,playerName="";
 
 function startGame(){
     // Get player name
@@ -963,7 +963,7 @@ function showQuestion(){
 
 function resetTimer(){
     clearInterval(timer);
-    timeLeft=15;
+    timeLeft=30;
     document.getElementById("timer").textContent=timeLeft;
     timer=setInterval(()=>{
         timeLeft--;
@@ -1063,7 +1063,7 @@ function goToHomepage(){
     playerName="";
     clearInterval(timer);
     timer = null;
-    timeLeft = 15;
+    timeLeft = 30;
     document.getElementById("start-screen").style.display="block";
     document.getElementById("quiz-container").style.display="none";
     document.getElementById("end-screen").style.display="none";
