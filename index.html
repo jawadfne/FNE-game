@@ -547,6 +547,10 @@ h1:hover .title-text {
 <div id="start-screen">
   <h2><i class="fas fa-bullseye"></i> مرحبًا بك في كنز المعلومات</h2>
   <p style="margin-bottom: 30px; font-size: 18px; opacity: 0.9;">اختبر معلوماتك الإسلامية واربح الكنز! <i class="fas fa-trophy"></i></p>
+  <div style="margin-bottom: 25px;">
+    <label for="player-name" style="display: block; margin-bottom: 10px; font-size: 18px; font-weight: 600;">أدخل اسمك:</label>
+    <input type="text" id="player-name" placeholder="اكتب اسمك هنا..." style="width: 100%; padding: 12px 15px; font-size: 16px; border: 2px solid #d4af37; border-radius: 10px; background: rgba(255,255,255,0.9); color: #1a237e; font-family: 'Cairo', sans-serif; text-align: center; outline: none; transition: all 0.3s ease;" maxlength="20">
+  </div>
   <button onclick="startGame()" class="start-btn"><i class="fas fa-rocket"></i> ابدأ اللعب</button>
 </div>
 
@@ -888,9 +892,16 @@ const questions = [
 // ✅ ترتيب عشوائي للأسئلة
 questions.sort(() => Math.random() - 0.5);
 
-let score=0,mistakes=0,currentQuestion=0,timer,timeLeft=15;
+let score=0,mistakes=0,currentQuestion=0,timer,timeLeft=15,playerName="";
 
 function startGame(){
+    // Get player name
+    const nameInput = document.getElementById("player-name");
+    playerName = nameInput.value.trim();
+    if (!playerName) {
+        playerName = "اللاعب";
+    }
+    
     initAudio();
     createClickSound();
     document.getElementById("start-screen").style.display="none";
@@ -906,16 +917,16 @@ function showPopup(msg){
 }
 
 function showQuestion(){
-    if(mistakes>=3){
+    if(mistakes>=5){
         createLoseSound();
         document.getElementById("quiz-container").style.display="none";
-        document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-sad-tear'></i> لقد خسرت!</h2><p style='margin: 20px 0; font-size: 18px;'>لا تستسلم! حاول مرة أخرى</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
+        document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-sad-tear'></i> لقد خسرت يا " + playerName + "!</h2><p style='margin: 20px 0; font-size: 18px;'>لا تستسلم! حاول مرة أخرى</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
         document.getElementById("end-screen").style.display="block";
         return;
     }
     if(currentQuestion>=questions.length){
         document.getElementById("quiz-container").style.display="none";
-        document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-star'></i> مبروك! لقد أكملت جميع الأسئلة!</h2><p style='margin: 20px 0; font-size: 18px;'>النقاط النهائية: " + score + "</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
+        document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-star'></i> مبروك يا " + playerName + "! لقد أكملت جميع الأسئلة!</h2><p style='margin: 20px 0; font-size: 18px;'>النقاط النهائية: " + score + "</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
         document.getElementById("end-screen").style.display="block";
         return;
     }
@@ -1004,15 +1015,16 @@ function checkAnswer(selected){
         createCorrectSound();
         score++;
         if(score==5){
-            showPopup("كفو عليك!");
+            showPopup("كفو يا " + playerName + "!");
             createClapSound();
         }
         if(score==10){
-            showPopup("أنت بطل!");
+            showPopup("أنت بطل يا " + playerName + "!");
             createClapSound();
         }
-        if(score==20){
+        if(score==15){
             document.getElementById("quiz-container").style.display="none";
+            document.getElementById("end-screen").innerHTML="<h2><i class='fas fa-trophy'></i> مبروك يا " + playerName + "! لقد ربحت!</h2><p style='margin: 20px 0; font-size: 18px;'>النقاط النهائية: " + score + "</p><button id='restart-btn' onclick='restartGame()'><i class='fas fa-redo'></i> إعادة اللعب</button>";
             document.getElementById("end-screen").style.display="block";
             return;
         }
@@ -1048,6 +1060,7 @@ function goToHomepage(){
     score=0;
     mistakes=0;
     currentQuestion=0;
+    playerName="";
     clearInterval(timer);
     timer = null;
     timeLeft = 15;
@@ -1055,6 +1068,8 @@ function goToHomepage(){
     document.getElementById("quiz-container").style.display="none";
     document.getElementById("end-screen").style.display="none";
     document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;
+    // Clear the name input field
+    document.getElementById("player-name").value = "";
     questions.sort(() => Math.random() - 0.5);
 }
 </script>
