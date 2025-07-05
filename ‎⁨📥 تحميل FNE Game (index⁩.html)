@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FNE Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .option {
+            display: block;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .option:hover {
+            background: #e0e0e0;
+        }
+        .score {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FNE Game</h1>
+        <div id="game">
+            <div class="question" id="question">Loading...</div>
+            <div id="options"></div>
+            <div class="score" id="score">Score: 0 | Mistakes: 0</div>
+        </div>
+        <div id="end" style="display:none;">
+            <h2 id="endMessage"></h2>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                q: "من هو أول الخلفاء الراشدين؟",
+                options: ["أبو بكر الصديق", "عمر بن الخطاب", "عثمان بن عفان", "علي بن أبي طالب"],
+                answer: "أبو بكر الصديق"
+            },
+            {
+                q: "كم عدد الصلوات المفروضة في اليوم والليلة؟",
+                options: ["3", "4", "5", "6"],
+                answer: "5"
+            },
+            {
+                q: "ما هو الركن الثاني من أركان الإسلام؟",
+                options: ["الصلاة", "الزكاة", "الصوم", "الشهادة"],
+                answer: "الصلاة"
+            },
+            {
+                q: "من هو خاتم الأنبياء؟",
+                options: ["عيسى عليه السلام", "محمد ﷺ", "موسى عليه السلام", "نوح عليه السلام"],
+                answer: "محمد ﷺ"
+            },
+            {
+                q: "كم مرة ورد اسم الله في سورة الفاتحة؟",
+                options: ["مرة", "مرتين", "ثلاث مرات", "أربع مرات"],
+                answer: "مرتين"
+            },
+            {
+                q: "ما اسم أم النبي محمد ﷺ؟",
+                options: ["آمنة بنت وهب", "خديجة بنت خويلد", "عائشة بنت أبي بكر", "فاطمة بنت أسد"],
+                answer: "آمنة بنت وهب"
+            },
+            {
+                q: "في أي شهر يصوم المسلمون؟",
+                options: ["رجب", "شعبان", "رمضان", "شوال"],
+                answer: "رمضان"
+            },
+            {
+                q: "كم عدد أركان الإيمان؟",
+                options: ["4", "5", "6", "7"],
+                answer: "6"
+            },
+            {
+                q: "من هو أول من أسلم من الصبيان؟",
+                options: ["علي بن أبي طالب", "عبدالله بن عباس", "الحسن بن علي", "عمر بن الخطاب"],
+                answer: "علي بن أبي طالب"
+            },
+            {
+                q: "ما هي أعظم آية في القرآن الكريم؟",
+                options: ["آية الكرسي", "سورة الفاتحة", "الإخلاص", "آية الدين"],
+                answer: "آية الكرسي"
+            }
+        ];
+
+        let currentScore = 0;
+        let mistakes = 0;
+        let askedQuestions = [];
+        
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function askQuestion() {
+            if (currentScore >= 13) {
+                document.getElementById("game").style.display = "none";
+                document.getElementById("end").style.display = "block";
+                document.getElementById("endMessage").innerText = "🎉 لقد فزت!";
+                return;
+            }
+            if (mistakes >= 3) {
+                document.getElementById("game").style.display = "none";
+                document.getElementById("end").style.display = "block";
+                document.getElementById("endMessage").innerText = "❌ لقد خسرت!";
+                return;
+            }
+
+            let remainingQuestions = questions.filter(q => !askedQuestions.includes(q.q));
+            if (remainingQuestions.length === 0) {
+                askedQuestions = [];
+                remainingQuestions = [...questions];
+            }
+            const question = remainingQuestions[Math.floor(Math.random() * remainingQuestions.length)];
+            askedQuestions.push(question.q);
+
+            document.getElementById("question").innerText = question.q;
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = "";
+            const shuffledOptions = [...question.options];
+            shuffleArray(shuffledOptions);
+            shuffledOptions.forEach(opt => {
+                const btn = document.createElement("div");
+                btn.className = "option";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(opt, question.answer);
+                optionsContainer.appendChild(btn);
+            });
+            document.getElementById("score").innerText = "Score: " + currentScore + " | Mistakes: " + mistakes;
+        }
+
+        function checkAnswer(selected, correct) {
+            if (selected === correct) {
+                currentScore++;
+            } else {
+                mistakes++;
+            }
+            askQuestion();
+        }
+
+        function restartGame() {
+            currentScore = 0;
+            mistakes = 0;
+            askedQuestions = [];
+            document.getElementById("game").style.display = "block";
+            document.getElementById("end").style.display = "none";
+            askQuestion();
+        }
+
+        // Start the game
+        askQuestion();
+    </script>
+</body>
+</html>
