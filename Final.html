@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏆 كنز المعلومات</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #e0f2f1, #ffffff);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #004d40;
+    overflow-x: hidden;
+}
+h1 {
+    background-color: #26a69a;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+#quiz-container {
+    margin: 30px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.timer {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 6px solid #26a69a;
+    line-height: 80px;
+    font-size: 24px;
+    color: #00796b;
+    margin: 10px auto;
+    animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+    from {transform: scale(1);}
+    to {transform: scale(1.1);}
+}
+.question {
+    font-size: 22px;
+    margin: 20px 0;
+}
+.answer-btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #80cbc4;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.answer-btn:hover {
+    background-color: #4db6ac;
+    transform: scale(1.05);
+}
+.correct {
+    background-color: #4caf50 !important;
+    animation: correctFlash 0.5s;
+}
+@keyframes correctFlash {
+    from {background-color: #a5d6a7;}
+    to {background-color: #4caf50;}
+}
+.wrong {
+    background-color: #e57373 !important;
+    animation: wrongFlash 0.5s;
+}
+@keyframes wrongFlash {
+    from {background-color: #ef9a9a;}
+    to {background-color: #e57373;}
+}
+#score {
+    margin-top: 15px;
+    font-size: 18px;
+}
+#popup {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #26a69a;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 20px;
+    animation: popupAnim 0.5s ease-out;
+    z-index: 1000;
+}
+@keyframes popupAnim {
+    from {opacity: 0; transform: scale(0.8) translate(-50%, -50%);}
+    to {opacity: 1; transform: scale(1) translate(-50%, -50%);}
+}
+#end-screen {
+    display: none;
+    background-color: #c8e6c9;
+    padding: 30px;
+    border-radius: 15px;
+    animation: fadeIn 1s ease-out;
+}
+#end-screen h2 {
+    color: #2e7d32;
+    font-size: 26px;
+}
+#restart-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#restart-btn:hover {
+    background-color: #004d40;
+}
+</style>
+</head>
+<body>
+<h1>🏆 كنز المعلومات</h1>
+<div id="quiz-container">
+    <div class="timer" id="timer">15</div>
+    <div id="question" class="question">جارٍ التحميل...</div>
+    <div id="answers"></div>
+    <div id="score">النقاط: 0 | الأخطاء: 0</div>
+</div>
+<div id="popup"></div>
+<div id="end-screen">
+    <h2>🎉 لقد ربحت!</h2>
+    <button id="restart-btn" onclick="restartGame()">🔄 إعادة اللعب</button>
+</div>
+<script>
+const questions=[
+{q:"ما هي أول سورة في القرآن الكريم؟",answers:["البقرة","الفاتحة","الإخلاص","الكوثر"],correct:1},
+{q:"كم عدد أركان الإسلام؟",answers:["3","4","5","6"],correct:2},
+{q:"من هو خاتم الأنبياء؟",answers:["موسى","عيسى","محمد","نوح"],correct:2},
+{q:"في أي عام هجري وقعت غزوة بدر؟",answers:["1 هجري","2 هجري","3 هجري","4 هجري"],correct:1},
+{q:"كم عدد أجزاء القرآن الكريم؟",answers:["30","20","40","10"],correct:0},
+{q:"من أول الخلفاء الراشدين؟",answers:["عمر بن الخطاب","عثمان بن عفان","أبو بكر الصديق","علي بن أبي طالب"],correct:2},
+{q:"ما اسم الغار الذي كان فيه النبي ﷺ وأبو بكر يوم الهجرة؟",answers:["غار حراء","غار ثور","غار أحد","غار المروة"],correct:1},
+{q:"كم عدد أبواب الجنة؟",answers:["8","7","9","10"],correct:0},
+{q:"من أول مؤذن في الإسلام؟",answers:["بلال بن رباح","أبو هريرة","عبدالله بن مسعود","خالد بن الوليد"],correct:0},
+{q:"ما هو الركن الثاني من أركان الإسلام؟",answers:["الصلاة","الزكاة","الصوم","الشهادة"],correct:0},
+// ... add up to 40 questions
+];
+let score=0,mistakes=0,currentQuestion=0,timer,timeLeft=15;
+function showPopup(msg){const p=document.getElementById("popup");p.textContent=msg;p.style.display="block";setTimeout(()=>{p.style.display="none"},1500);}
+function showQuestion(){if(mistakes>=3){document.getElementById("quiz-container").style.display="none";document.getElementById("end-screen").innerHTML="<h2>😢 لقد خسرت!</h2><button id='restart-btn' onclick='restartGame()'>🔄 إعادة اللعب</button>";document.getElementById("end-screen").style.display="block";return;}
+if(currentQuestion>=questions.length){document.getElementById("quiz-container").style.display="none";document.getElementById("end-screen").style.display="block";return;}
+let q=questions[currentQuestion];document.getElementById("question").textContent=q.q;let aDiv=document.getElementById("answers");aDiv.innerHTML="";q.answers.forEach((ans,i)=>{const btn=document.createElement("button");btn.textContent=ans;btn.className="answer-btn";btn.onclick=()=>checkAnswer(i);aDiv.appendChild(btn);});resetTimer();}
+function resetTimer(){clearInterval(timer);timeLeft=15;document.getElementById("timer").textContent=timeLeft;timer=setInterval(()=>{timeLeft--;document.getElementById("timer").textContent=timeLeft;if(timeLeft<=0){clearInterval(timer);autoWrong();}},1000);}
+function autoWrong(){document.querySelectorAll(".answer-btn").forEach(btn=>btn.classList.add("wrong"));mistakes++;document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;setTimeout(()=>{currentQuestion++;showQuestion();},1000);}
+function checkAnswer(selected){clearInterval(timer);const correct=questions[currentQuestion].correct;if(selected===correct){document.querySelectorAll(".answer-btn")[selected].classList.add("correct");score++;if(score==5)showPopup("🎉 كفو عليك!");if(score==10)showPopup("🏆 أنت بطل!");if(score==20){document.getElementById("quiz-container").style.display="none";document.getElementById("end-screen").style.display="block";return;}}else{document.querySelectorAll(".answer-btn")[selected].classList.add("wrong");document.querySelectorAll(".answer-btn")[correct].classList.add("correct");mistakes++;}document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;setTimeout(()=>{currentQuestion++;showQuestion();},1200);}
+function restartGame(){score=0;mistakes=0;currentQuestion=0;document.getElementById("quiz-container").style.display="block";document.getElementById("end-screen").style.display="none";document.getElementById("score").textContent=`النقاط: ${score} | الأخطاء: ${mistakes}`;showQuestion();}
+showQuestion();
+</script>
+</body>
+</html>
