@@ -1,0 +1,2912 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>كنز المعلومات - لعبة إسلامية مميزة</title>
+
+<!-- Fallback CSS for GitHub Pages -->
+<style>
+/* Critical CSS for immediate rendering */
+html { 
+    background-color: #0a1929 !important; 
+}
+body { 
+    background-color: #0a1929 !important;
+    background: linear-gradient(135deg, #0a1929 0%, #0a0f1c 50%, #1a1a2e 100%) !important;
+    color: #fff !important;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+* {
+    box-sizing: border-box;
+}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Cairo:wght@300;400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+    --primary-gold: #ffd700;
+    --secondary-gold: #ffed4e;
+    --deep-blue: #0a1929;
+    --royal-blue: #1a237e;
+    --emerald: #00c853;
+    --ruby: #d32f2f;
+    --amethyst: #7b1fa2;
+    --sapphire: #1976d2;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+    --gradient-royal: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #1565c0 100%);
+    --gradient-success: linear-gradient(135deg, #00c853 0%, #4caf50 100%);
+    --gradient-error: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
+    --gradient-premium: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --gradient-luxury: linear-gradient(135deg, #ffd700 0%, #ff6b6b 50%, #4ecdc4 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', 'Noto Naskh Arabic', 'Amiri', Arial, sans-serif;
+    /* Fallback solid background */
+    background-color: #0a1929 !important;
+    /* Primary gradient background */
+    background: linear-gradient(135deg, #0a1929 0%, #0a0f1c 50%, #1a1a2e 100%) !important;
+    /* Fallback for CSS variables */
+    background: linear-gradient(135deg, var(--deep-blue) 0%, #0a0f1c 50%, #1a1a2e 100%) !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: #fff;
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fallback background */
+    background: linear-gradient(45deg, rgba(120, 119, 198, 0.2) 0%, rgba(255, 119, 198, 0.2) 50%, rgba(120, 219, 255, 0.2) 100%);
+    /* Enhanced animated background */
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+    animation: backgroundShift 20s ease-in-out infinite;
+    z-index: -2;
+}
+
+@keyframes backgroundShift {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(1deg); }
+}
+
+/* Floating Particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    /* Fallback background */
+    background: #ffd700;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 0s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 1s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+}
+
+/* Modern Header */
+h1 {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #fff;
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    letter-spacing: 0.5px;
+}
+
+h1:hover {
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container i {
+    font-size: 1.4rem;
+    /* Fallback color */
+    color: #ffd700;
+    color: var(--primary-gold);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.logo-container i:hover {
+    color: #fff;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transform: scale(1.1);
+}
+
+
+
+
+
+.title-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+h1:hover .title-text {
+    /* Fallback color */
+    color: #ffd700;
+    color: var(--primary-gold);
+}
+
+/* Glassmorphism Container */
+.glass-container {
+    /* Fallback background */
+    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* Fallback border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    /* Fallback shadow */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
+    padding: 25px;
+    margin: 15px auto;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-gold);
+    opacity: 0.7;
+}
+
+.glass-container:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Premium Buttons */
+.premium-btn {
+    /* Fallback background */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Fallback shadow */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cairo', Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 15px 10px;
+    min-width: 200px;
+}
+
+.premium-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.premium-btn:hover::before {
+    left: 100%;
+}
+
+.premium-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 30px rgba(102, 126, 234, 0.4);
+    background: var(--gradient-gold);
+    color: var(--deep-blue);
+}
+
+.premium-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Input Styling */
+.premium-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 20px 25px;
+    font-size: 1.3rem;
+    color: white;
+    width: 100%;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+}
+
+.premium-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.premium-input:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Quiz Container */
+#quiz-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-heavy);
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 900px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.quiz-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+}
+
+.quiz-footer {
+    margin-top: 15px;
+}
+
+#answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+#quiz-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    animation: shine 6s infinite;
+    pointer-events: none;
+}
+
+#quiz-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 50%, rgba(240, 147, 251, 0.05) 100%);
+    pointer-events: none;
+    border-radius: 30px;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Question Styling */
+#question {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.3;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3), 0 0 15px rgba(255, 255, 255, 0.2);
+    position: relative;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: questionAppear 0.8s ease-out;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+@keyframes questionAppear {
+    0% { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.9);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Answer Buttons */
+.answer-btn {
+    /* Fallback background */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: var(--gradient-premium);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    margin: 5px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Fallback shadow */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cairo', Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: buttonSlideIn 0.6s ease-out;
+    transform: translateY(0);
+}
+
+.answer-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.answer-btn:hover::before {
+    left: 100%;
+}
+
+.answer-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 30px rgba(102, 126, 234, 0.4);
+    /* Fallback background */
+    background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 50%, #4ecdc4 100%);
+    background: var(--gradient-luxury);
+    /* Fallback color */
+    color: #0a1929;
+    color: var(--deep-blue);
+    /* Fallback border */
+    border: 2px solid #ffd700;
+    border: 2px solid var(--primary-gold);
+}
+
+.answer-btn:active {
+    transform: translateY(-2px) scale(1.01);
+}
+
+.answer-btn.correct {
+    background: var(--gradient-success);
+    animation: correctPulse 0.6s ease-out;
+    box-shadow: 0 0 30px rgba(0, 200, 83, 0.5);
+}
+
+.answer-btn.wrong {
+    background: var(--gradient-error);
+    animation: wrongShake 0.6s ease-out;
+    box-shadow: 0 0 30px rgba(211, 47, 47, 0.5);
+}
+
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes buttonSlideIn {
+    0% { 
+        opacity: 0; 
+        transform: translateX(-50px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(0);
+    }
+}
+
+/* Helper Tools */
+.helper-tools {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.helper-btn {
+    background: var(--gradient-royal);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Cairo', sans-serif;
+    min-width: 110px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.helper-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.helper-btn:hover::before {
+    left: 100%;
+}
+
+.helper-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(26, 35, 126, 0.4);
+    background: var(--gradient-luxury);
+    color: var(--deep-blue);
+    border: 2px solid var(--primary-gold);
+}
+
+.helper-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.helper-btn:disabled:hover {
+    transform: none;
+    box-shadow: var(--shadow-light);
+}
+
+/* Score and Timer */
+#score {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-align: center;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+#timer {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--primary-gold);
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 215, 0, 0.15) 100%);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 2px solid var(--primary-gold);
+    backdrop-filter: blur(10px);
+    animation: timerPulse 1s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes timerPulse {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* Hint Styling */
+#hint {
+    background: var(--gradient-luxury);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-light);
+    border: 2px solid var(--primary-gold);
+    backdrop-filter: blur(10px);
+    animation: hintSlideIn 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+@keyframes hintSlideIn {
+    0% { 
+        opacity: 0; 
+        transform: translateY(-20px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+/* Modern Notification */
+.popup {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: notificationSlideDown 0.3s ease-out;
+    max-width: 400px;
+    min-width: 200px;
+}
+
+@keyframes notificationSlideDown {
+    0% { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(-20px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes notificationSlideUp {
+    0% { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0);
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+/* End Screen */
+#end-screen {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 2px solid var(--primary-gold);
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: var(--shadow-heavy);
+    margin: 30px auto;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+#end-screen::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+    animation: shine 4s infinite;
+    pointer-events: none;
+}
+
+#end-screen h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-gold);
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { 
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+}
+
+#end-screen p {
+    font-size: 1.3rem;
+    margin: 25px 0;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.4rem;
+        padding: 12px 15px;
+        gap: 10px;
+    }
+    
+    .logo-container i {
+        font-size: 1.2rem;
+    }
+    
+    .title-text {
+        font-size: 1.4rem;
+    }
+    
+    .glass-container {
+        margin: 10px 15px;
+        padding: 20px 15px;
+    }
+    
+    #quiz-container {
+        margin: 5px 10px;
+        padding: 15px;
+        height: calc(100vh - 100px);
+    }
+    
+    .quiz-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    
+    #question {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+    
+    .answer-btn {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    #answers {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .helper-tools {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .helper-btn {
+        min-width: 90px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+    
+    .premium-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        min-width: 120px;
+    }
+    
+    #timer {
+        font-size: 1.4rem;
+        padding: 8px 15px;
+    }
+    
+    #score {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+    
+    .popup {
+        top: 75px;
+        max-width: 350px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    
+    .logo-container i {
+        font-size: 1rem;
+    }
+    
+    .title-text {
+        font-size: 1.2rem;
+    }
+    
+    #quiz-container {
+        margin: 3px 8px;
+        padding: 12px;
+        height: calc(100vh - 90px);
+    }
+    
+    #question {
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+    
+    .answer-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .helper-btn {
+        min-width: 80px;
+        padding: 5px 10px;
+        font-size: 0.65rem;
+    }
+    
+    .premium-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        min-width: 100px;
+    }
+    
+    #timer {
+        font-size: 1.2rem;
+        padding: 6px 12px;
+    }
+    
+    #score {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+    
+    .popup {
+        top: 70px;
+        max-width: 320px;
+        min-width: 180px;
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-gold);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success Animation */
+.success-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: var(--primary-gold);
+    z-index: 1001;
+    animation: successBounce 1s ease-out;
+    pointer-events: none;
+}
+
+@keyframes successBounce {
+    0% { 
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Hidden elements */
+.hidden {
+    display: none !important;
+}
+
+/* Level Selection */
+.level-button {
+    background: var(--gradient-premium);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    color: white;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.level-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.level-button:hover::before {
+    left: 100%;
+}
+
+.level-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 30px rgba(102, 126, 234, 0.4);
+    border-color: var(--primary-gold);
+}
+
+.level-button.locked {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.level-button.locked:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.level-button.completed {
+    background: var(--gradient-success);
+}
+
+.level-number {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.level-stars {
+    font-size: 1.2rem;
+    color: var(--primary-gold);
+    margin-top: 5px;
+}
+
+.level-lock {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-gold);
+}
+</style>
+</head>
+<body>
+<!-- Floating Particles -->
+<div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<!-- Emergency background fix for GitHub Pages -->
+<style>
+    body, html {
+        background: #0a1929 !important;
+        background: linear-gradient(135deg, #0a1929 0%, #0a0f1c 50%, #1a1a2e 100%) !important;
+        min-height: 100vh !important;
+        color: #fff !important;
+    }
+</style>
+
+<h1 onclick="location.reload()">
+    <div class="logo-container">
+        <i class="fas fa-star"></i>
+        <span class="title-text">كنز المعلومات</span>
+        <i class="fas fa-star"></i>
+    </div>
+</h1>
+
+<div id="start-screen" class="glass-container">
+    <h2 style="font-size: 2.5rem; margin-bottom: 30px; color: var(--primary-gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+        <i class="fas fa-star"></i> كنز المعلومات الإسلامية
+    </h2>
+    <p style="font-size: 1.3rem; margin-bottom: 30px; line-height: 1.6;">
+        اختبر معلوماتك الإسلامية في هذه اللعبة المميزة!<br>
+        <span style="color: var(--primary-gold); font-weight: 600;">سجل دخولك أو أنشئ حساباً جديداً</span>
+    </p>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="showLoginScreen()" class="premium-btn">
+            <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+        </button>
+        <button onclick="showRegisterScreen()" class="premium-btn" style="background: var(--gradient-success);">
+            <i class="fas fa-user-plus"></i> إنشاء حساب جديد
+        </button>
+    </div>
+</div>
+
+<div id="login-screen" class="glass-container hidden">
+    <h2 style="font-size: 2rem; margin-bottom: 30px; color: var(--primary-gold); text-align: center;">
+        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+    </h2>
+    <form onsubmit="handleLogin(event)">
+        <input type="text" id="login-username" class="premium-input" placeholder="اسم المستخدم..." maxlength="20" required>
+        <input type="password" id="login-password" class="premium-input" placeholder="كلمة المرور..." maxlength="50" required>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+            <button type="submit" class="premium-btn">
+                <i class="fas fa-key"></i> دخول
+            </button>
+            <button type="button" onclick="goToStartScreen()" class="premium-btn" style="background: var(--gradient-royal);">
+                <i class="fas fa-arrow-right"></i> رجوع
+            </button>
+        </div>
+    </form>
+</div>
+
+<div id="register-screen" class="glass-container hidden">
+    <h2 style="font-size: 2rem; margin-bottom: 30px; color: var(--primary-gold); text-align: center;">
+        <i class="fas fa-user-plus"></i> إنشاء حساب جديد
+    </h2>
+    <form onsubmit="handleRegister(event)">
+        <input type="text" id="register-username" class="premium-input" placeholder="اسم المستخدم (3 أحرف على الأقل)..." maxlength="20" required>
+        <input type="text" id="register-display-name" class="premium-input" placeholder="اسمك للعرض في اللعبة..." maxlength="20" required>
+        <input type="password" id="register-password" class="premium-input" placeholder="كلمة المرور (4 أحرف على الأقل)..." maxlength="50" required>
+        <input type="password" id="register-confirm-password" class="premium-input" placeholder="تأكيد كلمة المرور..." maxlength="50" required>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+            <button type="submit" class="premium-btn" style="background: var(--gradient-success);">
+                <i class="fas fa-user-plus"></i> إنشاء الحساب
+            </button>
+            <button type="button" onclick="goToStartScreen()" class="premium-btn" style="background: var(--gradient-royal);">
+                <i class="fas fa-arrow-right"></i> رجوع
+            </button>
+        </div>
+    </form>
+</div>
+
+<div id="user-dashboard" class="glass-container hidden">
+    <div id="user-welcome" style="text-align: center; margin-bottom: 30px;">
+        <h2 style="font-size: 2rem; color: var(--primary-gold); margin-bottom: 15px;">
+            <i class="fas fa-user"></i> مرحباً بك، <span id="welcome-username"></span>!
+        </h2>
+        <div id="user-stats" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; backdrop-filter: blur(10px);">
+                <div style="color: var(--primary-gold); font-weight: 700; font-size: 1.5rem;" id="completed-levels">0</div>
+                <div style="font-size: 0.9rem;">مستويات مكتملة</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; backdrop-filter: blur(10px);">
+                <div style="color: var(--primary-gold); font-weight: 700; font-size: 1.5rem;" id="total-stars">0</div>
+                <div style="font-size: 0.9rem;">إجمالي النجوم</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; backdrop-filter: blur(10px);">
+                <div style="color: var(--primary-gold); font-weight: 700; font-size: 1.5rem;" id="unlocked-levels">1</div>
+                <div style="font-size: 0.9rem;">مستويات مفتوحة</div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="showLevelSelection()" class="premium-btn">
+            <i class="fas fa-play"></i> ابدأ اللعبة
+        </button>
+        <button onclick="showAccountSettings()" class="premium-btn" style="background: var(--gradient-royal);">
+            <i class="fas fa-cog"></i> إعدادات الحساب
+        </button>
+        <button onclick="logoutAccount()" class="premium-btn" style="background: var(--gradient-error);">
+            <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+        </button>
+    </div>
+</div>
+
+<div id="account-settings" class="glass-container hidden">
+    <h2 style="font-size: 2rem; margin-bottom: 30px; color: var(--primary-gold); text-align: center;">
+        <i class="fas fa-cog"></i> إعدادات الحساب
+    </h2>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <p style="font-size: 1.2rem; margin-bottom: 20px;">
+            اسم المستخدم: <span style="color: var(--primary-gold); font-weight: 600;" id="settings-username"></span>
+        </p>
+        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; margin: 20px 0;">
+            <h3 style="color: var(--primary-gold); margin-bottom: 15px;">إحصائيات حسابك</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div>تاريخ الإنشاء: <span id="account-created"></span></div>
+                <div>المستويات المكتملة: <span id="settings-completed"></span></div>
+                <div>إجمالي النجوم: <span id="settings-stars"></span></div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="showUserDashboard()" class="premium-btn" style="background: var(--gradient-royal);">
+            <i class="fas fa-arrow-right"></i> رجوع
+        </button>
+        <button onclick="resetProgress()" class="premium-btn" style="background: var(--gradient-error);">
+            <i class="fas fa-trash"></i> محو التقدم
+        </button>
+        <button onclick="deleteAccount()" class="premium-btn" style="background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);">
+            <i class="fas fa-user-times"></i> حذف الحساب
+        </button>
+    </div>
+</div>
+
+<div id="level-selection" class="glass-container hidden" style="max-width: 900px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+        <h2 style="font-size: 2rem; color: var(--primary-gold); margin: 0;">
+            <i class="fas fa-map"></i> اختر المستوى
+        </h2>
+        <div style="color: var(--primary-gold); font-weight: 600;">
+            <i class="fas fa-user"></i> <span id="level-screen-username"></span>
+        </div>
+    </div>
+    <div id="levels-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+        <!-- Levels will be generated here -->
+    </div>
+    <div style="text-align: center; margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <button onclick="showUserDashboard()" class="premium-btn" style="background: var(--gradient-royal);">
+            <i class="fas fa-home"></i> لوحة التحكم
+        </button>
+        <button onclick="logoutAccount()" class="premium-btn" style="background: var(--gradient-error);">
+            <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+        </button>
+    </div>
+</div>
+
+<div id="level-complete" class="glass-container hidden">
+    <div style="text-align: center;">
+        <h2 id="level-complete-title" style="font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-gold);">
+            <i class="fas fa-trophy"></i> مبروك!
+        </h2>
+        <div id="level-stars" style="font-size: 3rem; margin: 20px 0; color: var(--primary-gold);">
+            <!-- Stars will be added here -->
+        </div>
+        <p id="level-complete-text" style="font-size: 1.3rem; margin: 20px 0;">
+            <!-- Level completion text -->
+        </p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+            <button id="next-level-btn" onclick="nextLevel()" class="premium-btn">
+                <i class="fas fa-arrow-right"></i> المستوى التالي
+            </button>
+            <button id="retry-level-btn" onclick="startLevel(currentLevel)" class="premium-btn" style="background: var(--gradient-error); display: none;">
+                <i class="fas fa-redo"></i> إعادة المحاولة
+            </button>
+            <button onclick="showLevelSelection()" class="premium-btn" style="background: var(--gradient-royal);">
+                <i class="fas fa-map"></i> خريطة المستويات
+            </button>
+            <button onclick="showUserDashboard()" class="premium-btn" style="background: var(--gradient-error);">
+                <i class="fas fa-home"></i> لوحة التحكم
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="quiz-container" class="hidden">
+    <div class="quiz-header">
+        <div id="score">
+            المستوى 1 | النقاط: 0 | الأخطاء: 0
+        </div>
+        <div id="timer">
+            30
+        </div>
+    </div>
+    
+    <div class="quiz-content">
+        <div id="question">
+            السؤال سيظهر هنا
+        </div>
+        
+        <div id="answers">
+            <!-- الإجابات ستظهر هنا -->
+        </div>
+        
+        <div id="hint" style="display: none;">
+            التلميح سيظهر هنا
+        </div>
+    </div>
+    
+    <div class="quiz-footer">
+        <div class="helper-tools">
+            <button id="remove-two-btn" onclick="removeTwoWrongAnswers()" class="helper-btn">
+                <i class="fas fa-minus-circle"></i> إزالة خيارين
+            </button>
+            <button id="hint-btn" onclick="showHint()" class="helper-btn">
+                <i class="fas fa-lightbulb"></i> تلميح
+            </button>
+            <button id="pause-timer-btn" onclick="pauseTimer()" class="helper-btn">
+                <i class="fas fa-pause"></i> إيقاف المؤقت
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="end-screen" class="hidden">
+    <!-- شاشة النهاية ستظهر هنا -->
+</div>
+
+<script>
+// Premium Game Variables
+let playerName = "";
+let score = 0;
+let mistakes = 0;
+let currentQuestion = 0;
+let currentLevel = 1;
+let levelMistakes = 0;
+let totalLevels = 6; // Will be calculated after questionsDatabase is defined
+let questionsPerLevel = 10;
+let timeLeft = 30;
+let timer;
+let audioContext;
+let helperToolsUsed = {
+    removeTwo: false,
+    hint: false,
+    pauseTimer: false
+};
+
+// Account Management System
+let currentAccount = null;
+let gameProgress = {
+    unlockedLevels: 1,
+    completedLevels: {},
+    levelStars: {}
+};
+
+// Account Functions
+function createAccount(username, password, displayName) {
+    try {
+        const accounts = getAccounts();
+        
+        // Check if username already exists
+        if (accounts[username]) {
+            return { success: false, message: "اسم المستخدم موجود بالفعل!" };
+        }
+        
+        // Validate inputs
+        if (username.length < 3) {
+            return { success: false, message: "اسم المستخدم يجب أن يكون 3 أحرف على الأقل!" };
+        }
+        
+        if (password.length < 4) {
+            return { success: false, message: "كلمة المرور يجب أن تكون 4 أحرف على الأقل!" };
+        }
+        
+        // Create new account
+        accounts[username] = {
+            password: password,
+            displayName: displayName,
+            createdAt: new Date().toISOString(),
+            progress: {
+                unlockedLevels: 1,
+                completedLevels: {},
+                levelStars: {}
+            }
+        };
+        
+        saveAccounts(accounts);
+        return { success: true, message: "تم إنشاء الحساب بنجاح!" };
+        
+    } catch (error) {
+        console.error('Error creating account:', error);
+        return { success: false, message: "حدث خطأ في إنشاء الحساب" };
+    }
+}
+
+function loginAccount(username, password) {
+    try {
+        const accounts = getAccounts();
+        
+        if (!accounts[username]) {
+            return { success: false, message: "اسم المستخدم غير موجود!" };
+        }
+        
+        if (accounts[username].password !== password) {
+            return { success: false, message: "كلمة المرور خاطئة!" };
+        }
+        
+        // Login successful
+        currentAccount = username;
+        gameProgress = accounts[username].progress;
+        
+        // Save current session
+        localStorage.setItem('currentUser', username);
+        
+        return { success: true, message: "تم تسجيل الدخول بنجاح!" };
+        
+    } catch (error) {
+        console.error('Error logging in:', error);
+        return { success: false, message: "حدث خطأ في تسجيل الدخول" };
+    }
+}
+
+function logoutAccount() {
+    try {
+        currentAccount = null;
+        gameProgress = {
+            unlockedLevels: 1,
+            completedLevels: {},
+            levelStars: {}
+        };
+        localStorage.removeItem('currentUser');
+        goToHomepage();
+    } catch (error) {
+        console.error('Error logging out:', error);
+    }
+}
+
+function getAccounts() {
+    try {
+        const saved = localStorage.getItem('islamicGameAccounts');
+        return saved ? JSON.parse(saved) : {};
+    } catch (error) {
+        console.error('Error loading accounts:', error);
+        return {};
+    }
+}
+
+function saveAccounts(accounts) {
+    try {
+        localStorage.setItem('islamicGameAccounts', JSON.stringify(accounts));
+    } catch (error) {
+        console.error('Error saving accounts:', error);
+    }
+}
+
+function saveProgress() {
+    try {
+        if (!currentAccount) return;
+        
+        const accounts = getAccounts();
+        if (accounts[currentAccount]) {
+            accounts[currentAccount].progress = gameProgress;
+            saveAccounts(accounts);
+        }
+    } catch (error) {
+        console.error('Error saving progress:', error);
+    }
+}
+
+function loadProgress() {
+    try {
+        // Try to restore session
+        const savedUser = localStorage.getItem('currentUser');
+        if (savedUser) {
+            const accounts = getAccounts();
+            if (accounts[savedUser]) {
+                currentAccount = savedUser;
+                gameProgress = accounts[savedUser].progress;
+                return true;
+            }
+        }
+        return false;
+    } catch (error) {
+        console.error('Error loading progress:', error);
+        return false;
+    }
+}
+
+// Get questions for current level
+function getLevelQuestions(level) {
+    const startIndex = (level - 1) * questionsPerLevel;
+    const endIndex = Math.min(startIndex + questionsPerLevel, questionsDatabase.length);
+    return questionsDatabase.slice(startIndex, endIndex);
+}
+
+// Calculate stars based on mistakes
+function calculateStars(mistakes) {
+    if (mistakes === 0) return 3;  // بدون أخطاء = 3 نجوم
+    if (mistakes === 1) return 2;  // خطأ واحد = 2 نجوم
+    if (mistakes === 2) return 1;  // خطأين = 1 نجمة
+    return 0;  // 3 أخطاء أو أكثر = خسارة
+}
+
+// Premium Questions Database
+const questionsDatabase = [
+    {
+        q: "من هو أول خليفة في الإسلام؟",
+        answers: ["أبو بكر الصديق", "عمر بن الخطاب", "عثمان بن عفان", "علي بن أبي طالب"],
+        correct: 0
+    },
+    {
+        q: "كم عدد أركان الإسلام؟",
+        answers: ["4", "5", "6", "7"],
+        correct: 1
+    },
+    {
+        q: "ما هو أول مسجد بني في الإسلام؟",
+        answers: ["مسجد قباء", "المسجد النبوي", "المسجد الحرام", "مسجد الأقصى"],
+        correct: 0
+    },
+    {
+        q: "من هو آخر الأنبياء والرسل؟",
+        answers: ["عيسى عليه السلام", "موسى عليه السلام", "محمد صلى الله عليه وسلم", "إبراهيم عليه السلام"],
+        correct: 2
+    },
+    {
+        q: "كم عدد سور القرآن الكريم؟",
+        answers: ["112", "113", "114", "115"],
+        correct: 2
+    },
+    {
+        q: "ما هي أول سورة نزلت في القرآن؟",
+        answers: ["الفاتحة", "البقرة", "العلق", "يوسف"],
+        correct: 2
+    },
+    {
+        q: "من هو أول مؤذن في الإسلام؟",
+        answers: ["بلال بن رباح", "عبد الله بن مسعود", "أبو ذر الغفاري", "سلمان الفارسي"],
+        correct: 0
+    },
+    {
+        q: "كم عدد ركعات صلاة الظهر؟",
+        answers: ["2", "3", "4", "5"],
+        correct: 2
+    },
+    {
+        q: "ما هو شهر رمضان في التقويم الهجري؟",
+        answers: ["الشهر السابع", "الشهر الثامن", "الشهر التاسع", "الشهر العاشر"],
+        correct: 2
+    },
+    {
+        q: "من هو أول من أسلم من الرجال؟",
+        answers: ["أبو بكر الصديق", "عمر بن الخطاب", "علي بن أبي طالب", "عثمان بن عفان"],
+        correct: 0
+    },
+    {
+        q: "ما هي أعظم سورة في القرآن؟",
+        answers: ["الفاتحة", "البقرة", "آل عمران", "النساء"],
+        correct: 1
+    },
+    {
+        q: "كم عدد أحزاب القرآن؟",
+        answers: ["30", "60", "120", "240"],
+        correct: 1
+    },
+    {
+        q: "من هو أول من جمع القرآن في مصحف واحد؟",
+        answers: ["أبو بكر الصديق", "عمر بن الخطاب", "عثمان بن عفان", "علي بن أبي طالب"],
+        correct: 0
+    },
+    {
+        q: "ما هي أطول سورة في القرآن؟",
+        answers: ["البقرة", "آل عمران", "النساء", "المائدة"],
+        correct: 0
+    },
+    {
+        q: "كم عدد كلمات القرآن الكريم؟",
+        answers: ["77439", "77440", "77441", "77442"],
+        correct: 0
+    },
+    {q:"ما هي أول سورة في القرآن الكريم؟",answers:["البقرة","الفاتحة","الإخلاص","الكوثر"],correct:1},
+    {q:"كم عدد أركان الإسلام؟",answers:["3","4","5","6"],correct:2},
+    {q:"من هو خاتم الأنبياء؟",answers:["موسى","عيسى","محمد","نوح"],correct:2},
+    {q:"في أي عام هجري وقعت غزوة بدر؟",answers:["1 هجري","2 هجري","3 هجري","4 هجري"],correct:1},
+    {q:"كم عدد أجزاء القرآن الكريم؟",answers:["30","20","40","10"],correct:0},
+    {q:"من أول الخلفاء الراشدين؟",answers:["عمر بن الخطاب","عثمان بن عفان","أبو بكر الصديق","علي بن أبي طالب"],correct:2},
+    {q:"ما اسم الغار الذي كان فيه النبي ﷺ وأبو بكر يوم الهجرة؟",answers:["غار حراء","غار ثور","غار أحد","غار المروة"],correct:1},
+    {q:"كم عدد أبواب الجنة؟",answers:["8","7","9","10"],correct:0},
+    {q:"من أول مؤذن في الإسلام؟",answers:["بلال بن رباح","أبو هريرة","عبدالله بن مسعود","خالد بن الوليد"],correct:0},
+    {q:"ما هو الركن الثاني من أركان الإسلام؟",answers:["الصلاة","الزكاة","الصوم","الشهادة"],correct:0},
+    {q:"كم عدد السجدات في القرآن الكريم؟",answers:["15","14","13","16"],correct:0},
+    {q:"ما اسم أم النبي محمد ﷺ؟",answers:["آمنة بنت وهب","خديجة بنت خويلد","حفصة بنت عمر","عائشة بنت أبي بكر"],correct:0},
+    {q:"ما هي أول كلمة نزلت من القرآن؟",answers:["اقرأ","الحمد","بسم","الله"],correct:0},
+    {q:"كم عدد الركعات في صلاة الظهر؟",answers:["4","2","3","5"],correct:0},
+    {q:"من هو الصحابي الملقب بسيف الله المسلول؟",answers:["خالد بن الوليد","عمر بن الخطاب","علي بن أبي طالب","حمزة بن عبد المطلب"],correct:0},
+    {q:"ما هي ثاني أكبر سورة في القرآن؟",answers:["الأعراف","النساء","آل عمران","المائدة"],correct:0},
+    {q:"أي نبي ابتلعه الحوت؟",answers:["يونس","نوح","إبراهيم","موسى"],correct:0},
+    {q:"ما اسم الغزوة التي وقعت في رمضان؟",answers:["بدر","أحد","الخندق","تبوك"],correct:0},
+    {q:"ما الركن الرابع من أركان الإسلام؟",answers:["الصوم","الحج","الزكاة","الشهادة"],correct:0},
+    {q:"من أول سفير في الإسلام؟",answers:["مصعب بن عمير","بلال بن رباح","أبو هريرة","سعد بن أبي وقاص"],correct:0},
+    {q:"كم عدد أسماء الله الحسنى؟",answers:["99","100","98","97"],correct:0},
+    {q:"ما اسم والد النبي ﷺ؟",answers:["عبدالله","عبدالمطلب","أبو طالب","حمزة"],correct:0},
+    {q:"ما اسم الغار قبل البعثة؟",answers:["حراء","ثور","أحد","المروة"],correct:0},
+    {q:"ما هي أطول آية في القرآن؟",answers:["آية الدين","آية الكرسي","التطهير","النور"],correct:0},
+    {q:"كم عدد أشهر الحرم؟",answers:["4","3","2","5"],correct:0},
+    {q:"ما القبلة الأولى للمسلمين؟",answers:["الأقصى","الكعبة","قباء","النبي"],correct:0},
+    {q:"أي نبي تحدث كطفل؟",answers:["عيسى","محمد","موسى","إبراهيم"],correct:0},
+    {q:"كم تكبيرات صلاة الجنازة؟",answers:["4","5","6","3"],correct:0},
+    {q:"ما السورة التي لا تبدأ بالبسملة؟",answers:["التوبة","الأنفال","النساء","الإسراء"],correct:0},
+    {q:"كم كان عمر النبي ﷺ عند الوفاة؟",answers:["63","60","65","62"],correct:0},
+    {q:"من هو الفاروق؟",answers:["عمر بن الخطاب","علي","أبو بكر","عثمان"],correct:0},
+    {q:"ما آخر سورة في القرآن؟",answers:["الناس","الفلق","الإخلاص","الكافرون"],correct:0},
+    {q:"من أول من أسلم من الصبيان؟",answers:["علي","عبدالله بن مسعود","زيد","بلال"],correct:0},
+    {q:"ما دعاء يونس من بطن الحوت؟",answers:["لا إله إلا أنت سبحانك إني كنت من الظالمين","رب زدني علماً","رب اشرح لي صدري","حسبنا الله ونعم الوكيل"],correct:0},
+    {q:"كم حج النبي ﷺ؟",answers:["مرة واحدة","مرتان","ثلاث","لم يحج"],correct:0},
+    {q:"أي سورة تعادل ثلث القرآن؟",answers:["الإخلاص","الفاتحة","الكوثر","النصر"],correct:0},
+    {q:"من أول نبي بُعث؟",answers:["نوح","إبراهيم","آدم","موسى"],correct:0},
+    {q:"كم مرة ورد اسم عيسى بالقرآن؟",answers:["25","30","20","15"],correct:0},
+    {q:"ما اسم المسجد الذي أُسري إليه؟",answers:["الأقصى","الحرام","النبوي","قباء"],correct:0}
+];
+
+// Current questions for the level being played
+let questions = [];
+
+// Initialize level system
+function initializeLevels() {
+    totalLevels = Math.ceil(questionsDatabase.length / questionsPerLevel);
+    console.log(`Initialized ${totalLevels} levels with ${questionsDatabase.length} questions`);
+}
+
+// Premium Audio System
+function initAudio() {
+    try {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    } catch (error) {
+        console.log('Audio context not supported');
+    }
+}
+
+// Premium Sound Effects
+function createClickSound() {
+    try {
+        if (audioContext) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+    } catch (error) {
+        console.log('Sound effect failed');
+    }
+}
+
+function createCorrectSound() {
+    try {
+        if (audioContext) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(523, audioContext.currentTime);
+            oscillator.frequency.setValueAtTime(659, audioContext.currentTime + 0.1);
+            oscillator.frequency.setValueAtTime(784, audioContext.currentTime + 0.2);
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.3);
+        }
+    } catch (error) {
+        console.log('Correct sound failed');
+    }
+}
+
+function createWrongSound() {
+    try {
+        if (audioContext) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.3);
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.3);
+        }
+    } catch (error) {
+        console.log('Wrong sound failed');
+    }
+}
+
+function createWarningSound() {
+    try {
+        if (audioContext) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+            oscillator.frequency.setValueAtTime(300, audioContext.currentTime + 0.1);
+            oscillator.frequency.setValueAtTime(400, audioContext.currentTime + 0.2);
+            
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.3);
+        }
+    } catch (error) {
+        console.log('Warning sound failed');
+    }
+}
+
+function createLoseSound() {
+    try {
+        if (audioContext) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(300, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(150, audioContext.currentTime + 0.5);
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+    } catch (error) {
+        console.log('Lose sound failed');
+    }
+}
+
+function createClapSound() {
+    try {
+        if (audioContext) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.05);
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime + 0.1);
+            oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.15);
+            
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.2);
+        }
+    } catch (error) {
+        console.log('Clap sound failed');
+    }
+}
+
+// Premium Popup System
+function showPopup(message) {
+    try {
+        const popup = document.createElement('div');
+        popup.className = 'popup';
+        popup.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <i class="fas fa-info-circle" style="font-size: 1rem; color: var(--primary-gold);"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(popup);
+        
+        setTimeout(() => {
+            popup.style.animation = 'notificationSlideUp 0.3s ease-out forwards';
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 300);
+        }, 2000);
+    } catch (error) {
+        console.error('Error showing popup:', error);
+    }
+}
+
+// Premium Success Animation
+function showSuccessAnimation() {
+    try {
+        const success = document.createElement('div');
+        success.className = 'success-animation';
+        success.innerHTML = '<i class="fas fa-star"></i>';
+        
+        document.body.appendChild(success);
+        
+        setTimeout(() => {
+            document.body.removeChild(success);
+        }, 1000);
+    } catch (error) {
+        console.error('Error showing success animation:', error);
+    }
+}
+
+// Account UI Functions
+function showLoginScreen() {
+    hideAllScreens();
+    document.getElementById("login-screen").classList.remove("hidden");
+    createClickSound();
+}
+
+function showRegisterScreen() {
+    hideAllScreens();
+    document.getElementById("register-screen").classList.remove("hidden");
+    createClickSound();
+}
+
+function goToStartScreen() {
+    hideAllScreens();
+    document.getElementById("start-screen").classList.remove("hidden");
+    createClickSound();
+}
+
+function showUserDashboard() {
+    if (!currentAccount) {
+        goToStartScreen();
+        return;
+    }
+    
+    hideAllScreens();
+    document.getElementById("user-dashboard").classList.remove("hidden");
+    updateUserStats();
+    createClickSound();
+}
+
+function showAccountSettings() {
+    if (!currentAccount) {
+        goToStartScreen();
+        return;
+    }
+    
+    hideAllScreens();
+    document.getElementById("account-settings").classList.remove("hidden");
+    updateAccountSettings();
+    createClickSound();
+}
+
+function showLevelSelection() {
+    if (!currentAccount) {
+        goToStartScreen();
+        return;
+    }
+    
+    hideAllScreens();
+    document.getElementById("level-selection").classList.remove("hidden");
+    
+    // Update username display
+    const usernameSpan = document.getElementById("level-screen-username");
+    if (usernameSpan) {
+        const accounts = getAccounts();
+        const displayName = accounts[currentAccount]?.displayName || currentAccount;
+        usernameSpan.textContent = displayName;
+    }
+    
+    generateLevels();
+    createClickSound();
+}
+
+function hideAllScreens() {
+    const screens = [
+        "start-screen", "login-screen", "register-screen", 
+        "user-dashboard", "account-settings", "level-selection", 
+        "quiz-container", "level-complete", "end-screen"
+    ];
+    
+    screens.forEach(screenId => {
+        const screen = document.getElementById(screenId);
+        if (screen) screen.classList.add("hidden");
+    });
+}
+
+// Form Handlers
+function handleLogin(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value;
+    
+    const result = loginAccount(username, password);
+    
+    if (result.success) {
+        playerName = getAccounts()[currentAccount]?.displayName || currentAccount;
+        showPopup(result.message);
+        setTimeout(() => showUserDashboard(), 1000);
+    } else {
+        showPopup(result.message);
+    }
+}
+
+function handleRegister(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById("register-username").value.trim();
+    const displayName = document.getElementById("register-display-name").value.trim();
+    const password = document.getElementById("register-password").value;
+    const confirmPassword = document.getElementById("register-confirm-password").value;
+    
+    if (password !== confirmPassword) {
+        showPopup("كلمتا المرور غير متطابقتان!");
+        return;
+    }
+    
+    if (displayName.length < 2) {
+        showPopup("اسم العرض يجب أن يكون حرفين على الأقل!");
+        return;
+    }
+    
+    const result = createAccount(username, password, displayName);
+    
+    if (result.success) {
+        showPopup(result.message);
+        setTimeout(() => {
+            // Clear form
+            document.getElementById("register-username").value = "";
+            document.getElementById("register-display-name").value = "";
+            document.getElementById("register-password").value = "";
+            document.getElementById("register-confirm-password").value = "";
+            showLoginScreen();
+        }, 1500);
+    } else {
+        showPopup(result.message);
+    }
+}
+
+// Update Statistics
+function updateUserStats() {
+    if (!currentAccount) return;
+    
+    const accounts = getAccounts();
+    const accountData = accounts[currentAccount];
+    if (!accountData) return;
+    
+    const displayName = accountData.displayName || currentAccount;
+    const completedCount = Object.keys(gameProgress.completedLevels).length;
+    const totalStars = Object.values(gameProgress.levelStars).reduce((sum, stars) => sum + stars, 0);
+    
+    // Update welcome screen
+    const welcomeUsername = document.getElementById("welcome-username");
+    if (welcomeUsername) welcomeUsername.textContent = displayName;
+    
+    const completedLevelsSpan = document.getElementById("completed-levels");
+    if (completedLevelsSpan) completedLevelsSpan.textContent = completedCount;
+    
+    const totalStarsSpan = document.getElementById("total-stars");
+    if (totalStarsSpan) totalStarsSpan.textContent = totalStars;
+    
+    const unlockedLevelsSpan = document.getElementById("unlocked-levels");
+    if (unlockedLevelsSpan) unlockedLevelsSpan.textContent = gameProgress.unlockedLevels;
+}
+
+function updateAccountSettings() {
+    if (!currentAccount) return;
+    
+    const accounts = getAccounts();
+    const accountData = accounts[currentAccount];
+    if (!accountData) return;
+    
+    const completedCount = Object.keys(gameProgress.completedLevels).length;
+    const totalStars = Object.values(gameProgress.levelStars).reduce((sum, stars) => sum + stars, 0);
+    
+    // Update settings screen
+    const settingsUsername = document.getElementById("settings-username");
+    if (settingsUsername) settingsUsername.textContent = currentAccount;
+    
+    const accountCreated = document.getElementById("account-created");
+    if (accountCreated) {
+        const date = new Date(accountData.createdAt);
+        accountCreated.textContent = date.toLocaleDateString("ar-SA");
+    }
+    
+    const settingsCompleted = document.getElementById("settings-completed");
+    if (settingsCompleted) settingsCompleted.textContent = completedCount;
+    
+    const settingsStars = document.getElementById("settings-stars");
+    if (settingsStars) settingsStars.textContent = totalStars;
+}
+
+function deleteAccount() {
+    if (!currentAccount) return;
+    
+    if (confirm("هل أنت متأكد من حذف حسابك؟ ستفقد جميع بياناتك نهائياً!")) {
+        if (confirm("هذا الإجراء لا يمكن التراجع عنه. هل أنت متأكد تماماً؟")) {
+            const accounts = getAccounts();
+            delete accounts[currentAccount];
+            saveAccounts(accounts);
+            
+            currentAccount = null;
+            showPopup("تم حذف الحساب بنجاح");
+            setTimeout(() => goToStartScreen(), 1500);
+        }
+    }
+}
+
+function generateLevels() {
+    try {
+        const levelsGrid = document.getElementById("levels-grid");
+        if (!levelsGrid) return;
+        
+        levelsGrid.innerHTML = "";
+        
+        for (let i = 1; i <= totalLevels; i++) {
+            const levelButton = document.createElement("div");
+            levelButton.className = "level-button";
+            
+            const isUnlocked = i <= gameProgress.unlockedLevels;
+            const isCompleted = gameProgress.completedLevels[i];
+            const stars = gameProgress.levelStars[i] || 0;
+            
+            if (!isUnlocked) {
+                levelButton.classList.add("locked");
+            } else if (isCompleted) {
+                levelButton.classList.add("completed");
+            }
+            
+            let content = `<div class="level-number">المستوى ${i}</div>`;
+            
+            if (!isUnlocked) {
+                content += `<div class="level-lock"><i class="fas fa-lock"></i></div>`;
+            } else {
+                const questionsInLevel = getLevelQuestions(i).length;
+                content += `<div>${questionsInLevel} أسئلة</div>`;
+                
+                if (isCompleted && stars > 0) {
+                    let starsHtml = "";
+                    for (let s = 1; s <= 3; s++) {
+                        if (s <= stars) {
+                            starsHtml += '<i class="fas fa-star"></i>';
+                        } else {
+                            starsHtml += '<i class="far fa-star"></i>';
+                        }
+                    }
+                    content += `<div class="level-stars">${starsHtml}</div>`;
+                }
+            }
+            
+            levelButton.innerHTML = content;
+            
+            if (isUnlocked) {
+                levelButton.onclick = () => {
+                    createClickSound();
+                    startLevel(i);
+                };
+            }
+            
+            levelsGrid.appendChild(levelButton);
+        }
+        
+    } catch (error) {
+        console.error('Error in generateLevels:', error);
+    }
+}
+
+function startLevel(level) {
+    try {
+        initAudio();
+        createClickSound();
+        
+        currentLevel = level;
+        levelMistakes = 0;
+        score = 0;
+        mistakes = 0;
+        currentQuestion = 0;
+        
+        // Reset helper tools for the level
+        helperToolsUsed = {
+            removeTwo: false,
+            hint: false,
+            pauseTimer: false
+        };
+        
+        // Get questions for this level
+        const levelQuestions = getLevelQuestions(level);
+        // Create a shuffled copy
+        questions = [...levelQuestions].sort(() => Math.random() - 0.5);
+        
+        const levelSelection = document.getElementById("level-selection");
+        const quizContainer = document.getElementById("quiz-container");
+        
+        if (levelSelection) levelSelection.classList.add("hidden");
+        if (quizContainer) quizContainer.classList.remove("hidden");
+        
+        showQuestion();
+        
+        console.log(`Level ${level} started with ${questions.length} questions`);
+        
+    } catch (error) {
+        console.error('Error in startLevel:', error);
+        showPopup("حدث خطأ في بدء المستوى. يرجى المحاولة مرة أخرى.");
+    }
+}
+
+function nextLevel() {
+    try {
+        const nextLevelNum = currentLevel + 1;
+        if (nextLevelNum <= totalLevels && nextLevelNum <= gameProgress.unlockedLevels) {
+            startLevel(nextLevelNum);
+        } else {
+            showLevelSelection();
+        }
+    } catch (error) {
+        console.error('Error in nextLevel:', error);
+        showLevelSelection();
+    }
+}
+
+function completeLevel() {
+    try {
+        const stars = calculateStars(levelMistakes);
+        
+        // Update progress only if level passed (at least 1 star)
+        if (stars > 0) {
+            gameProgress.completedLevels[currentLevel] = true;
+            gameProgress.levelStars[currentLevel] = Math.max(gameProgress.levelStars[currentLevel] || 0, stars);
+            
+            // Unlock next level if this is the highest completed level
+            if (currentLevel === gameProgress.unlockedLevels && currentLevel < totalLevels) {
+                gameProgress.unlockedLevels = currentLevel + 1;
+            }
+            
+            saveProgress();
+        }
+        
+        // Show level complete screen
+        const quizContainer = document.getElementById("quiz-container");
+        const levelComplete = document.getElementById("level-complete");
+        
+        if (quizContainer) quizContainer.classList.add("hidden");
+        if (levelComplete) levelComplete.classList.remove("hidden");
+        
+        // Update level complete screen
+        const title = document.getElementById("level-complete-title");
+        const starsDiv = document.getElementById("level-stars");
+        const text = document.getElementById("level-complete-text");
+        const nextBtn = document.getElementById("next-level-btn");
+        
+        if (title) {
+            if (stars > 0) {
+                title.innerHTML = `<i class="fas fa-trophy"></i> مبروك يا ${playerName}!`;
+            } else {
+                title.innerHTML = `<i class="fas fa-sad-tear"></i> للأسف يا ${playerName}`;
+            }
+        }
+        
+        if (starsDiv) {
+            let starsHtml = "";
+            if (stars > 0) {
+                for (let i = 1; i <= 3; i++) {
+                    if (i <= stars) {
+                        starsHtml += '<i class="fas fa-star" style="color: var(--primary-gold);"></i> ';
+                    } else {
+                        starsHtml += '<i class="far fa-star" style="color: rgba(255,255,255,0.3);"></i> ';
+                    }
+                }
+            } else {
+                starsHtml = '<i class="fas fa-times-circle" style="color: #f44336; font-size: 2rem;"></i>';
+                starsHtml += '<p style="margin: 10px 0; color: #f44336;">لم تحصل على أي نجمة</p>';
+            }
+            starsDiv.innerHTML = starsHtml;
+        }
+        
+        if (text) {
+            let message = `أكملت المستوى ${currentLevel}!<br>`;
+            message += `النقاط: ${score} من ${questions.length}<br>`;
+            message += `الأخطاء: ${levelMistakes}<br>`;
+            
+            if (stars === 3) {
+                message += '<span style="color: var(--primary-gold);">أداء مثالي! بدون أخطاء! 🏆⭐⭐⭐</span>';
+            } else if (stars === 2) {
+                message += '<span style="color: var(--secondary-gold);">أداء ممتاز! خطأ واحد فقط! 👏⭐⭐</span>';
+            } else if (stars === 1) {
+                message += '<span style="color: #ffb74d;">أداء جيد! خطأين فقط! 💪⭐</span>';
+            } else {
+                message += '<span style="color: #f44336;">فشلت في المستوى! 3 أخطاء أو أكثر ❌<br>حاول مرة أخرى!</span>';
+            }
+            
+            text.innerHTML = message;
+        }
+        
+        // Show/hide next level button - only if level passed (at least 1 star)
+        if (nextBtn) {
+            if (stars > 0 && currentLevel < totalLevels && gameProgress.unlockedLevels > currentLevel) {
+                nextBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'none';
+            }
+        }
+        
+        // Show/hide retry button - only if level failed (0 stars)
+        const retryBtn = document.getElementById("retry-level-btn");
+        if (retryBtn) {
+            if (stars === 0) {
+                retryBtn.style.display = 'block';
+            } else {
+                retryBtn.style.display = 'none';
+            }
+        }
+        
+        // Play completion sound
+        if (stars === 3) {
+            createClapSound();
+        } else if (stars > 0) {
+            createCorrectSound();
+        } else {
+            createLoseSound();
+        }
+        
+        console.log(`Level ${currentLevel} completed with ${stars} stars`);
+        
+    } catch (error) {
+        console.error('Error in completeLevel:', error);
+    }
+}
+
+// Premium Remove Two Wrong Answers
+function removeTwoWrongAnswers() {
+    try {
+        console.log('removeTwoWrongAnswers called');
+        
+        if (helperToolsUsed.removeTwo) {
+            console.log('Tool already used');
+            return;
+        }
+        
+        const currentQ = questions[currentQuestion];
+        if (!currentQ) {
+            console.error('Current question not found');
+            return;
+        }
+        
+        console.log('Current question:', currentQ);
+        console.log('Correct answer index:', currentQ.correct);
+        
+        const answerButtons = document.querySelectorAll(".answer-btn");
+        console.log('Found answer buttons:', answerButtons.length);
+        
+        if (answerButtons.length === 0) {
+            console.error('No answer buttons found');
+            return;
+        }
+        
+        const wrongAnswers = [];
+        
+        // جمع الإجابات الخاطئة
+        answerButtons.forEach((btn, index) => {
+            console.log(`Button ${index}: ${btn.textContent}, isCorrect: ${index === currentQ.correct}`);
+            if (index !== currentQ.correct) {
+                wrongAnswers.push({ button: btn, index: index });
+            }
+        });
+        
+        console.log('Wrong answers found:', wrongAnswers.length);
+        
+        if (wrongAnswers.length < 2) {
+            console.error('Not enough wrong answers to remove');
+            return;
+        }
+        
+        // إزالة خيارين خاطئين عشوائياً
+        const shuffled = wrongAnswers.sort(() => 0.5 - Math.random());
+        const toRemove = shuffled.slice(0, 2);
+        
+        console.log('Removing buttons:', toRemove.map(item => item.index));
+        
+        toRemove.forEach(item => {
+            item.button.style.display = 'none';
+            item.button.disabled = true;
+            console.log(`Hidden button ${item.index}: ${item.button.textContent}`);
+        });
+        
+        helperToolsUsed.removeTwo = true;
+        updateHelperButtons();
+        createClickSound();
+        showPopup("تم إزالة خيارين خاطئين!");
+        
+        console.log('Remove two wrong answers completed successfully');
+        
+    } catch (error) {
+        console.error('Error in removeTwoWrongAnswers:', error);
+        showPopup("حدث خطأ في إزالة الخيارين");
+    }
+}
+
+// Premium Show Hint
+function showHint() {
+    try {
+        if (helperToolsUsed.hint) return;
+        
+        const currentQ = questions[currentQuestion];
+        const hintDiv = document.getElementById("hint");
+        
+        if (!currentQ || !hintDiv) {
+            console.error('Question or hint div not found');
+            return;
+        }
+        
+        // إنشاء تلميحات بناءً على نوع السؤال
+        let hintText = "";
+        const questionText = currentQ.q.toLowerCase();
+        
+        if (questionText.includes("كم") || questionText.includes("عدد")) {
+            hintText = "💡 تلميح: ركز على الأرقام والأعداد في السؤال";
+        } else if (questionText.includes("من") || questionText.includes("أول")) {
+            hintText = "💡 تلميح: فكر في الشخصيات التاريخية المهمة";
+        } else if (questionText.includes("ما") || questionText.includes("اسم")) {
+            hintText = "💡 تلميح: ابحث عن الأسماء والمصطلحات الإسلامية";
+        } else if (questionText.includes("في") || questionText.includes("أي")) {
+            hintText = "💡 تلميح: فكر في الأماكن والأوقات المهمة";
+        } else {
+            hintText = "💡 تلميح: اقرأ السؤال بعناية وابحث عن الكلمات المفتاحية";
+        }
+        
+        hintDiv.textContent = hintText;
+        hintDiv.style.display = "block";
+        
+        helperToolsUsed.hint = true;
+        updateHelperButtons();
+        createClickSound();
+        
+    } catch (error) {
+        console.error('Error in showHint:', error);
+    }
+}
+
+// Premium Pause Timer
+function pauseTimer() {
+    try {
+        if (helperToolsUsed.pauseTimer) return;
+        
+        clearInterval(timer);
+        const timerDisplay = document.getElementById("timer");
+        if (timerDisplay) {
+            timerDisplay.style.color = "#ffd700";
+            timerDisplay.style.fontWeight = "bold";
+        }
+        
+        setTimeout(() => {
+            if (timerDisplay) {
+                timerDisplay.style.color = "";
+                timerDisplay.style.fontWeight = "";
+            }
+            resetTimer();
+        }, 5000);
+        
+        helperToolsUsed.pauseTimer = true;
+        updateHelperButtons();
+        createClickSound();
+        showPopup("تم إيقاف المؤقت لمدة 5 ثوانٍ!");
+        
+    } catch (error) {
+        console.error('Error in pauseTimer:', error);
+    }
+}
+
+// Premium Update Helper Buttons
+function updateHelperButtons() {
+    try {
+        const removeBtn = document.getElementById("remove-two-btn");
+        const hintBtn = document.getElementById("hint-btn");
+        const pauseBtn = document.getElementById("pause-timer-btn");
+        
+        console.log('Updating helper buttons...');
+        console.log('Helper tools used:', helperToolsUsed);
+        
+        if (removeBtn) {
+            removeBtn.disabled = helperToolsUsed.removeTwo;
+            removeBtn.style.opacity = helperToolsUsed.removeTwo ? "0.5" : "1";
+            console.log('Remove button updated:', !helperToolsUsed.removeTwo);
+        } else {
+            console.error('Remove button not found');
+        }
+        
+        if (hintBtn) {
+            hintBtn.disabled = helperToolsUsed.hint;
+            hintBtn.style.opacity = helperToolsUsed.hint ? "0.5" : "1";
+            console.log('Hint button updated:', !helperToolsUsed.hint);
+        } else {
+            console.error('Hint button not found');
+        }
+        
+        if (pauseBtn) {
+            pauseBtn.disabled = helperToolsUsed.pauseTimer;
+            pauseBtn.style.opacity = helperToolsUsed.pauseTimer ? "0.5" : "1";
+            console.log('Pause button updated:', !helperToolsUsed.pauseTimer);
+        } else {
+            console.error('Pause button not found');
+        }
+        
+    } catch (error) {
+        console.error('Error in updateHelperButtons:', error);
+    }
+}
+
+// Premium Show Question
+function showQuestion() {
+    try {
+                // Check if level failed (3 mistakes = failure)
+        if (levelMistakes >= 3) {
+            createLoseSound();
+            const quizContainer = document.getElementById("quiz-container");
+            const endScreen = document.getElementById("end-screen");
+            if (quizContainer) quizContainer.classList.add("hidden");
+            if (endScreen) {
+                endScreen.innerHTML = `
+                    <h2><i class="fas fa-sad-tear"></i> فشلت في المستوى ${currentLevel}!</h2>
+                    <p style="margin: 20px 0; font-size: 18px;">وصلت للحد الأقصى (3 أخطاء) ❌<br>لا تستسلم! حاول مرة أخرى</p>
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="startLevel(${currentLevel})" class="premium-btn">
+                            <i class="fas fa-redo"></i> إعادة المحاولة
+                        </button>
+                        <button onclick="showLevelSelection()" class="premium-btn" style="background: var(--gradient-royal);">
+                            <i class="fas fa-map"></i> خريطة المستويات
+                        </button>
+                    </div>
+                `;
+                endScreen.classList.remove("hidden");
+            }
+            return;
+        }
+        
+        // Check if level completed
+        if (currentQuestion >= questions.length) {
+            completeLevel();
+            return;
+        }
+        
+        let q = questions[currentQuestion];
+        if (!q) {
+            console.error('Question not found at index:', currentQuestion);
+            return;
+        }
+        
+        // Shuffle answers and update correct index
+        let answerObjs = q.answers.map((a, idx) => ({text: a, isCorrect: idx === q.correct}));
+        for (let i = answerObjs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [answerObjs[i], answerObjs[j]] = [answerObjs[j], answerObjs[i]];
+        }
+        let newCorrectIdx = answerObjs.findIndex(a => a.isCorrect);
+        q.answers = answerObjs.map(a => a.text);
+        q.correct = newCorrectIdx;
+        
+        const questionElement = document.getElementById("question");
+        if (questionElement) questionElement.textContent = q.q;
+        
+        // إخفاء التلميح السابق
+        const hintDiv = document.getElementById("hint");
+        if (hintDiv) {
+            hintDiv.style.display = "none";
+        }
+        
+        let aDiv = document.getElementById("answers");
+        if (!aDiv) {
+            console.error('Answers container not found');
+            return;
+        }
+        
+        aDiv.innerHTML = "";
+        q.answers.forEach((ans, i) => {
+            const btn = document.createElement("button");
+            btn.textContent = ans;
+            btn.className = "answer-btn";
+            btn.style.animationDelay = (i * 0.1) + "s";
+            btn.disabled = false;
+            btn.style.pointerEvents = 'auto';
+            btn.style.cursor = 'pointer';
+            btn.style.opacity = '1';
+            btn.style.display = 'block';
+            btn.onclick = () => {
+                initAudio();
+                createClickSound();
+                checkAnswer(i);
+            };
+            aDiv.appendChild(btn);
+        });
+        
+        // تحديث أزرار المساعدة
+        updateHelperButtons();
+        
+        resetTimer();
+        
+    } catch (error) {
+        console.error('Error in showQuestion:', error);
+        showPopup('حدث خطأ في عرض السؤال. يرجى تحديث الصفحة والمحاولة مرة أخرى.');
+    }
+}
+
+// Premium Reset Timer
+function resetTimer() {
+    try {
+        clearInterval(timer);
+        timeLeft = 30;
+        const timerElement = document.getElementById("timer");
+        if (timerElement) timerElement.textContent = timeLeft;
+        
+        timer = setInterval(() => {
+            timeLeft--;
+            if (timerElement) timerElement.textContent = timeLeft;
+            if (timeLeft == 5) {
+                createWarningSound();
+            }
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                autoWrong();
+            }
+        }, 1000);
+    } catch (error) {
+        console.error('Error in resetTimer:', error);
+    }
+}
+
+// Premium Auto Wrong
+function autoWrong() {
+    try {
+        const correct = questions[currentQuestion].correct;
+        const allButtons = document.querySelectorAll(".answer-btn");
+        
+        // Disable all buttons
+        allButtons.forEach(btn => {
+            btn.disabled = true;
+            btn.style.pointerEvents = 'none';
+            btn.style.cursor = 'default';
+        });
+        
+        // Show correct answer in green
+        if (allButtons[correct]) {
+            allButtons[correct].classList.add("correct");
+        }
+        
+        createWrongSound();
+        levelMistakes++;
+        mistakes++;
+        
+        const scoreElement = document.getElementById("score");
+        if (scoreElement) scoreElement.textContent = `المستوى ${currentLevel} | النقاط: ${score} | الأخطاء: ${levelMistakes}`;
+        
+        setTimeout(() => {
+            currentQuestion++;
+            showQuestion();
+        }, 2000);
+        
+    } catch (error) {
+        console.error('Error in autoWrong:', error);
+    }
+}
+
+// Premium Check Answer
+function checkAnswer(selected) {
+    try {
+        clearInterval(timer);
+        const correct = questions[currentQuestion].correct;
+        const allButtons = document.querySelectorAll(".answer-btn");
+        
+        // Disable all buttons to prevent multiple clicks
+        allButtons.forEach(btn => {
+            btn.disabled = true;
+            btn.style.pointerEvents = 'none';
+            btn.style.cursor = 'default';
+        });
+        
+        if (selected === correct) {
+            allButtons[selected].classList.add("correct");
+            createCorrectSound();
+            score++;
+            showSuccessAnimation();
+            
+            // رسائل تشجيعية للمستوى
+            const questionsInLevel = questions.length;
+            if (score === Math.floor(questionsInLevel / 2)) {
+                showPopup("كفو يا " + playerName + "!");
+                createClapSound();
+            }
+            if (score === questionsInLevel - 2) {
+                showPopup("أنت بطل يا " + playerName + "!");
+                createClapSound();
+            }
+        } else {
+            // Show wrong answer in red
+            allButtons[selected].classList.add("wrong");
+            // Show correct answer in green
+            allButtons[correct].classList.add("correct");
+            createWrongSound();
+            levelMistakes++;
+            mistakes++;
+        }
+        
+        const scoreElement = document.getElementById("score");
+        if (scoreElement) scoreElement.textContent = `المستوى ${currentLevel} | النقاط: ${score} | الأخطاء: ${levelMistakes}`;
+        
+        setTimeout(() => {
+            currentQuestion++;
+            showQuestion();
+        }, 2000);
+        
+    } catch (error) {
+        console.error('Error in checkAnswer:', error);
+    }
+}
+
+// Premium Restart Game
+function restartGame() {
+    try {
+        initAudio();
+        createClickSound();
+        
+        // Reset all variables
+        score = 0;
+        mistakes = 0;
+        currentQuestion = 0;
+        currentLevel = 1;
+        levelMistakes = 0;
+        
+        // إعادة تعيين الأدوات المساعدة
+        helperToolsUsed = {
+            removeTwo: false,
+            hint: false,
+            pauseTimer: false
+        };
+        
+        // Hide all screens and show start screen
+        const quizContainer = document.getElementById("quiz-container");
+        const endScreen = document.getElementById("end-screen");
+        const levelSelection = document.getElementById("level-selection");
+        const levelComplete = document.getElementById("level-complete");
+        const startScreen = document.getElementById("start-screen");
+        
+        [quizContainer, endScreen, levelSelection, levelComplete].forEach(screen => {
+            if (screen) screen.classList.add("hidden");
+        });
+        
+        if (startScreen) startScreen.classList.remove("hidden");
+        
+        // Reset player name input
+        const nameInput = document.getElementById("player-name");
+        if (nameInput) nameInput.value = "";
+        
+    } catch (error) {
+        console.error('Error in restartGame:', error);
+    }
+}
+
+// Premium Go to Homepage
+function goToHomepage() {
+    try {
+        initAudio();
+        createClickSound();
+        if (currentAccount) {
+            showUserDashboard();
+        } else {
+            goToStartScreen();
+        }
+    } catch (error) {
+        console.error('Error in goToHomepage:', error);
+    }
+}
+
+// Reset Progress
+function resetProgress() {
+    try {
+        if (confirm("هل أنت متأكد من محو جميع التقدم؟ لا يمكن التراجع عن هذا الإجراء!")) {
+            // Reset progress to initial state
+            gameProgress = {
+                unlockedLevels: 1,
+                completedLevels: {},
+                levelStars: {}
+            };
+            
+            // Save the reset progress
+            saveProgress();
+            
+            // Regenerate levels
+            generateLevels();
+            
+            showPopup("تم محو التقدم بنجاح!");
+            createClickSound();
+        }
+    } catch (error) {
+        console.error('Error in resetProgress:', error);
+        showPopup("حدث خطأ في محو التقدم");
+    }
+}
+
+// Account UI Functions
+function showLoginScreen() {
+    hideAllScreens();
+    document.getElementById("login-screen").classList.remove("hidden");
+    createClickSound();
+}
+
+function showRegisterScreen() {
+    hideAllScreens();
+    document.getElementById("register-screen").classList.remove("hidden");
+    createClickSound();
+}
+
+function goToStartScreen() {
+    hideAllScreens();
+    document.getElementById("start-screen").classList.remove("hidden");
+    createClickSound();
+}
+
+function showUserDashboard() {
+    if (!currentAccount) {
+        goToStartScreen();
+        return;
+    }
+    
+    hideAllScreens();
+    document.getElementById("user-dashboard").classList.remove("hidden");
+    updateUserStats();
+    createClickSound();
+}
+
+function showAccountSettings() {
+    if (!currentAccount) {
+        goToStartScreen();
+        return;
+    }
+    
+    hideAllScreens();
+    document.getElementById("account-settings").classList.remove("hidden");
+    updateAccountSettings();
+    createClickSound();
+}
+
+function hideAllScreens() {
+    const screens = [
+        "start-screen", "login-screen", "register-screen", 
+        "user-dashboard", "account-settings", "level-selection", 
+        "quiz-container", "level-complete", "end-screen"
+    ];
+    
+    screens.forEach(screenId => {
+        const screen = document.getElementById(screenId);
+        if (screen) screen.classList.add("hidden");
+    });
+}
+
+// Form Handlers
+function handleLogin(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value;
+    
+    const result = loginAccount(username, password);
+    
+    if (result.success) {
+        playerName = getAccounts()[currentAccount]?.displayName || currentAccount;
+        showPopup(result.message);
+        setTimeout(() => showUserDashboard(), 1000);
+    } else {
+        showPopup(result.message);
+    }
+}
+
+function handleRegister(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById("register-username").value.trim();
+    const displayName = document.getElementById("register-display-name").value.trim();
+    const password = document.getElementById("register-password").value;
+    const confirmPassword = document.getElementById("register-confirm-password").value;
+    
+    if (password !== confirmPassword) {
+        showPopup("كلمتا المرور غير متطابقتان!");
+        return;
+    }
+    
+    if (displayName.length < 2) {
+        showPopup("اسم العرض يجب أن يكون حرفين على الأقل!");
+        return;
+    }
+    
+    const result = createAccount(username, password, displayName);
+    
+    if (result.success) {
+        showPopup(result.message);
+        setTimeout(() => {
+            // Clear form
+            document.getElementById("register-username").value = "";
+            document.getElementById("register-display-name").value = "";
+            document.getElementById("register-password").value = "";
+            document.getElementById("register-confirm-password").value = "";
+            showLoginScreen();
+        }, 1500);
+    } else {
+        showPopup(result.message);
+    }
+}
+
+// Update Statistics
+function updateUserStats() {
+    if (!currentAccount) return;
+    
+    const accounts = getAccounts();
+    const accountData = accounts[currentAccount];
+    if (!accountData) return;
+    
+    const displayName = accountData.displayName || currentAccount;
+    const completedCount = Object.keys(gameProgress.completedLevels).length;
+    const totalStars = Object.values(gameProgress.levelStars).reduce((sum, stars) => sum + stars, 0);
+    
+    // Update welcome screen
+    const welcomeUsername = document.getElementById("welcome-username");
+    if (welcomeUsername) welcomeUsername.textContent = displayName;
+    
+    const completedLevelsSpan = document.getElementById("completed-levels");
+    if (completedLevelsSpan) completedLevelsSpan.textContent = completedCount;
+    
+    const totalStarsSpan = document.getElementById("total-stars");
+    if (totalStarsSpan) totalStarsSpan.textContent = totalStars;
+    
+    const unlockedLevelsSpan = document.getElementById("unlocked-levels");
+    if (unlockedLevelsSpan) unlockedLevelsSpan.textContent = gameProgress.unlockedLevels;
+}
+
+function updateAccountSettings() {
+    if (!currentAccount) return;
+    
+    const accounts = getAccounts();
+    const accountData = accounts[currentAccount];
+    if (!accountData) return;
+    
+    const completedCount = Object.keys(gameProgress.completedLevels).length;
+    const totalStars = Object.values(gameProgress.levelStars).reduce((sum, stars) => sum + stars, 0);
+    
+    // Update settings screen
+    const settingsUsername = document.getElementById("settings-username");
+    if (settingsUsername) settingsUsername.textContent = currentAccount;
+    
+    const accountCreated = document.getElementById("account-created");
+    if (accountCreated) {
+        const date = new Date(accountData.createdAt);
+        accountCreated.textContent = date.toLocaleDateString("ar-SA");
+    }
+    
+    const settingsCompleted = document.getElementById("settings-completed");
+    if (settingsCompleted) settingsCompleted.textContent = completedCount;
+    
+    const settingsStars = document.getElementById("settings-stars");
+    if (settingsStars) settingsStars.textContent = totalStars;
+}
+
+function deleteAccount() {
+    if (!currentAccount) return;
+    
+    if (confirm("هل أنت متأكد من حذف حسابك؟ ستفقد جميع بياناتك نهائياً!")) {
+        if (confirm("هذا الإجراء لا يمكن التراجع عنه. هل أنت متأكد تماماً؟")) {
+            const accounts = getAccounts();
+            delete accounts[currentAccount];
+            saveAccounts(accounts);
+            
+            currentAccount = null;
+            showPopup("تم حذف الحساب بنجاح");
+            setTimeout(() => goToStartScreen(), 1500);
+        }
+    }
+}
+
+// Initialize game when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        console.log('Game initialized successfully');
+        
+        // Initialize level system
+        initializeLevels();
+        
+        // Check for saved session
+        const hasSession = loadProgress();
+        if (hasSession) {
+            // Auto-login if session exists
+            showUserDashboard();
+        } else {
+            // Show start screen
+            goToStartScreen();
+        }
+        
+        // Add enter key support for login forms
+        const loginForm = document.querySelector('#login-screen form');
+        if (loginForm) {
+            loginForm.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    handleLogin(event);
+                }
+            });
+        }
+        
+        const registerForm = document.querySelector('#register-screen form');
+        if (registerForm) {
+            registerForm.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    handleRegister(event);
+                }
+            });
+        }
+        
+        // Initialize audio context on first user interaction
+        document.addEventListener('click', function() {
+            initAudio();
+        }, { once: true });
+        
+    } catch (error) {
+        console.error('Error initializing game:', error);
+    }
+});
+</script>
+</body>
+</html>
+
